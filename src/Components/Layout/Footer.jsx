@@ -66,12 +66,12 @@ const Footer = () => {
               <img
                 className="md:w-32 md:h-32 w-20 h-20 object-contain"
                 src={`${process.env.PUBLIC_URL}/images/lambang-ugm-putih.png`}
-                alt="logo ugm"
+                alt="Logo ugm"
               />
               <img
                 className="md:w-32 md:h-32 w-20 h-20 object-contain"
                 src={`${process.env.PUBLIC_URL}/images/logo-psg.png`}
-                alt="logo porsenigama"
+                alt="Logo porsenigama"
               />
             </div>
           </div>
