@@ -1,4 +1,5 @@
 module.exports = {
+  important:true,
   purge: [],
   darkMode: false, // or 'media' or 'class'
   theme: {
@@ -8,6 +9,8 @@ module.exports = {
         'krem' : '#FBE5D2',
         'merah' : '#E62434',
         'kuning' : '#F8BF0D',
+        'oren' : '#F16224',
+        'abu' : '#5D568C',
       },
       fontFamily: {
         nuku: ['Nuku Nuku', 'sans-serif'],
@@ -35,6 +38,11 @@ module.exports = {
       },
       boxShadow: {
         'csel1': '20px 20px 16px -5px rgba(0, 0, 0, 0.3)',
+      },
+      borderRadius: {
+        '4xl': '2rem',
+        '10xl' : '5rem',
+        '20xl' : '10rem',
       },
     },
   },
