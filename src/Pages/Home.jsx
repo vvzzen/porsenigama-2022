@@ -1,12 +1,11 @@
-import { ContohSection } from "../Components/Home";
+import { Section1 } from '../Components/Home';
+import { Title } from '../Components/Home'
 
 const Home = () => {
   return (
-    <div className="min-h-screen text-center gap-y-32">
-      <h1 className="font-bold pt-24 text-center text-5xl">Beranda</h1>
-      <section>
-        <ContohSection />
-      </section>
+    <div className="min-h-screen text-center gap-y-32 bg-krem">
+      <Title />
+      <Section1 />
     </div>
   );
 };
