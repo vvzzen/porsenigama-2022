@@ -1,6 +1,8 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
+import HTMLFlipBook from "react-pageflip";
+import ReactPlayer from "react-player";
 
-const Section2 = () => {
+const Countdown = () => {
   const [days, setDays] = useState("--");
   const [hours, setHours] = useState("--");
   const [minutes, setMinutes] = useState("--");
@@ -52,7 +54,145 @@ const Section2 = () => {
       clearInterval(countdown);
     };
   }, [dueTime]);
+  return (
+    <div className="flex space-x-1 py-48">
+      <div className="z-50 flex items-center justify-center relative w-60">
+        <img
+          className="absolute"
+          src={`${process.env.PUBLIC_URL}/images/Sec2/bg_hitungmundur.svg`}
+          alt=""
+        />
+        <span className="relative font-nuku text-onefourfour text-krem">
+          {days}
+        </span>
+      </div>
+      <div className="z-50 flex items-center justify-center relative w-60">
+        <img
+          className="absolute"
+          src={`${process.env.PUBLIC_URL}/images/Sec2/bg_hitungmundur.svg`}
+          alt=""
+        />
+        <span className="relative font-nuku text-onefourfour text-krem">
+          {hours}
+        </span>
+      </div>
+      <div className="z-50 flex items-center justify-center relative w-60">
+        <img
+          className="absolute"
+          src={`${process.env.PUBLIC_URL}/images/Sec2/bg_hitungmundur.svg`}
+          alt=""
+        />
+        <span className="relative font-nuku text-onefourfour text-krem">
+          {minutes}
+        </span>
+      </div>
+      <div className="z-50 flex items-center justify-center relative w-60">
+        <img
+          className="absolute"
+          src={`${process.env.PUBLIC_URL}/images/Sec2/bg_hitungmundur.svg`}
+          alt=""
+        />
+        <span className="relative font-nuku text-onefourfour text-krem">
+          {seconds}
+        </span>
+      </div>
+    </div>
+  );
+};
 
+const Book = () => {
+  const [page, setPage] = useState(0);
+  const lastPage = 10;
+  const book = useRef();
+
+  return (
+    <>
+      <div className="flex items-center justify-center h-full pt-72 pb-32">
+        <button
+          className="w-28 h-28 ml-10"
+          style={{
+            backgroundImage:
+              page === 0
+                ? `url(${process.env.PUBLIC_URL}/images/Sec2/arah_kiri_mati.svg)`
+                : `url(${process.env.PUBLIC_URL}/images/Sec2/arah_kiri_hidup.svg)`,
+            backgroundRepeat: `no-repeat`,
+          }}
+          onClick={() => book.current.pageFlip().flipPrev()}
+        />
+        <div className="z-50 flex items-center justify-center w-2/3">
+          <img
+            className="absolute"
+            src={`${process.env.PUBLIC_URL}/images/Sec2/buku_tengah.svg`}
+            alt=""
+          ></img>
+          <HTMLFlipBook
+            width={572}
+            height={769}
+            ref={book}
+            onFlip={() =>
+              setPage(book.current.pageFlip().getCurrentPageIndex())
+            }
+          >
+            {[...Array(2 * 6).keys()].map((x) => {
+              if (x % 2) {
+                return (
+                  <div key={x} className="flex items-center justify-center">
+                    <img
+                      src={`${process.env.PUBLIC_URL}/images/Sec2/buku_kanan.svg`}
+                      alt=""
+                    ></img>
+                    <ReactPlayer
+                      className="absolute -ml-6"
+                      url={`${process.env.PUBLIC_URL}/videos/Sec2/inporse${
+                        ((x % 2) + x) / 2
+                      }.mp4`}
+                      controls={true}
+                      width={460}
+                      height={575}
+                    />
+                  </div>
+                );
+              }
+              return (
+                <div key={x} className="flex items-center justify-center">
+                  <div className="flex items-center justify-center">
+                    <img
+                      src={`${process.env.PUBLIC_URL}/images/Sec2/buku_kiri.svg`}
+                      alt=""
+                    ></img>
+                    <img
+                      className="absolute mr-10"
+                      src={`${process.env.PUBLIC_URL}/images/Sec2/porsenipedia_judul_frame.png`}
+                      alt=""
+                    />
+                    <img
+                      className="z-50 absolute mr-10"
+                      src={`${process.env.PUBLIC_URL}/images/Sec2/porsenipedia_judul_teks.png`}
+                      alt=""
+                    />
+                  </div>
+                </div>
+              );
+            })}
+          </HTMLFlipBook>
+        </div>
+        <button
+          className="w-28 h-28 mr-10"
+          style={{
+            backgroundImage:
+              page === lastPage
+                ? `url(${process.env.PUBLIC_URL}/images/Sec2/arah_kanan_mati.svg)`
+                : `url(${process.env.PUBLIC_URL}/images/Sec2/arah_kanan_hidup.svg)`,
+            backgroundRepeat: `no-repeat`,
+          }}
+          onClick={() => book.current.pageFlip().flipNext()}
+        />
+      </div>
+    </>
+  );
+};
+
+const Section2 = () => {
   return (
     <>
       <div className="relative">
@@ -75,48 +215,7 @@ const Section2 = () => {
           <p className="px-12 ml-4 pb-3.5 rounded-full bg-merah w-max">
             <p className="font-sansPro text-krem text-sixtyfour">coming soon</p>
           </p>
-          <div className="flex space-x-1 py-48">
-            <div className="z-50 flex items-center justify-center relative w-60">
-              <img
-                className="absolute"
-                src={`${process.env.PUBLIC_URL}/images/Sec2/bg_hitungmundur.svg`}
-                alt=""
-              />
-              <span className="relative font-nuku text-onefourfour text-krem">
-                {days}
-              </span>
-            </div>
-            <div className="z-50 flex items-center justify-center relative w-60">
-              <img
-                className="absolute"
-                src={`${process.env.PUBLIC_URL}/images/Sec2/bg_hitungmundur.svg`}
-                alt=""
-              />
-              <span className="relative font-nuku text-onefourfour text-krem">
-                {hours}
-              </span>
-            </div>
-            <div className="z-50 flex items-center justify-center relative w-60">
-              <img
-                className="absolute"
-                src={`${process.env.PUBLIC_URL}/images/Sec2/bg_hitungmundur.svg`}
-                alt=""
-              />
-              <span className="relative font-nuku text-onefourfour text-krem">
-                {minutes}
-              </span>
-            </div>
-            <div className="z-50 flex items-center justify-center relative w-60">
-              <img
-                className="absolute"
-                src={`${process.env.PUBLIC_URL}/images/Sec2/bg_hitungmundur.svg`}
-                alt=""
-              />
-              <span className="relative font-nuku text-onefourfour text-krem">
-                {seconds}
-              </span>
-            </div>
-          </div>
+          <Countdown />
           <div className="absolute right-0 top-96 right-60">
             <p className="table-caption font-nuku text-sixty text-left uppercase ">
               Kasih maskot disini???
@@ -130,53 +229,9 @@ const Section2 = () => {
           src={`${process.env.PUBLIC_URL}/images/Sec2/bulan.svg`}
           alt=""
         />
-        <div className="flex items-center justify-center h-full py-72">
-          <img className="mr-20"
-            src={`${process.env.PUBLIC_URL}/images/Sec2/arah_kiri_mati.svg`}
-            alt=""
-          />
-          <div className="z-50 flex -space-x-28">
-            <div className="flex items-center justify-center">
-              <img
-                src={`${process.env.PUBLIC_URL}/images/Sec2/buku_kiri.svg`}
-                alt=""
-              ></img>
-              <img
-                className="absolute mr-10"
-                src={`${process.env.PUBLIC_URL}/images/Sec2/porsenipedia_judul_frame.png`}
-                alt=""
-              />
-              <img
-                className="z-50 absolute mr-10"
-                src={`${process.env.PUBLIC_URL}/images/Sec2/porsenipedia_judul_teks.png`}
-                alt=""
-              />
-            </div>
-            <img
-              src={`${process.env.PUBLIC_URL}/images/Sec2/buku_tengah.svg`}
-              alt=""
-            ></img>
-            <div className="flex items-center justify-center">
-              <img
-                src={`${process.env.PUBLIC_URL}/images/Sec2/buku_kanan.svg`}
-                alt=""
-              ></img>
-              <img
-                className="absolute -ml-5"
-                src={`${process.env.PUBLIC_URL}/images/Sec2/porsenipedia_konten.svg`}
-                alt=""
-              />
-              <p className="absolute text-2xl w-60 font-bold text-left">
-                disini artikel atau apalah kontennya porsenipedia
-              </p>
-            </div>
-          </div>
-          <img className="ml-20"
-            src={`${process.env.PUBLIC_URL}/images/Sec2/arah_kanan_hidup.svg`}
-            alt=""
-          />
-        </div>
+        <Book />
       </div>
+      <img src={`${process.env.PUBLIC_URL}/images/Sec2/bg_end.svg`} alt="" />
     </>
   );
 };
