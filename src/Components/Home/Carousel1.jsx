@@ -80,7 +80,7 @@ const Carousel1 = () => {
   };
 
   // Tailwind styles. Most importantly notice position absolute, this will sit relative to the carousel's outer div.
-  const arrowStyle = 'absolute mt-7 z-10 h-10 w-10 flex items-center justify-center transform scale-75 transition duration-300 hover:scale-100';
+  const arrowStyle = 'absolute mt-0 md:mt-7 z-10 h-10 w-10 flex items-center justify-center transform scale-35 md:scale-75 transition duration-300 md:hover:scale-100';
 
   // Let's create dynamic buttons. It can be either left or right. Using
   // isLeft boolean we can determine which side we'll be rendering our button
@@ -89,7 +89,7 @@ const Carousel1 = () => {
     <button
       type="button"
       onClick={isLeft ? previousImage : nextImage}
-      className={`${arrowStyle} ${isLeft ? '-left-20' : '-right-20'}`}
+      className={`${arrowStyle} ${isLeft ? '-left-10 md:-left-20' : '-right-10 md:-right-20'}`}
       style={{ top: '40%' }}
     >
       <span role="img" aria-label={`Arrow ${isLeft ? 'left' : 'right'}`}>
@@ -110,7 +110,7 @@ const Carousel1 = () => {
   // Finally the image itself will be 100% of a parent div. Outer div is
   // set with position relative, so we can place our cotrol buttons using
   // absolute positioning on each side of the image.
-    <div className="p-12 flex justify-center w-3/4 items-center">
+    <div className="p-0 mt-8 md:p-12 flex justify-center w-5/6 md:w-3/4 items-center">
       <div className="relative w-full">
         <div className="carousel shadow-csel1">
           {sliderControl(true)}
@@ -120,14 +120,14 @@ const Carousel1 = () => {
             </div>
           ))}
           <div className = 'w-full h-full flex justify-end absolute items-center'>          
-            <div id = 'textBerita' className = 'w-1/3 text-white text-right mr-8 cursor-default flex-shrink-0'>
-              <div className = 'w-full font-sans font-bold text-4xl mt-12 object-contain'>
+            <div id = 'textBerita' className = 'w-1/3 text-white text-right mr-3 md:mr-8 cursor-default flex-shrink-0'>
+              <div className = 'w-full font-sans font-bold text-md md:text-4xl md:mt-12 object-contain'>
                 {currentTitle}
               </div>
-              <div className = 'w-full font-sansPro text-md mt-2 object-contain'>
+              <div className = 'w-full font-sansPro hidden md:flex md:text-md mt-2 object-contain'>
                 {currentContent}                  
               </div> 
-              <button className = 'text-yellow-500 cursor-pointer font-sansPro text-md' onClick={readMore}>
+              <button className = 'text-yellow-500 cursor-pointer font-sansPro text-sm md:text-md' onClick={readMore}>
                 READ MORE...
               </button>
             </div>
