@@ -36,6 +36,11 @@ module.exports = {
       boxShadow: {
         'csel1': '20px 20px 16px -5px rgba(0, 0, 0, 0.3)',
       },
+      scale: {
+        '0': '0',
+        '35': '.35',
+        '40': '.4',
+      },
     },
   },
   variants: {
