@@ -7,7 +7,7 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        sec2: `url(${Host}/images/Sec2/bg.png)`,
+        sec2: `url(${Host}/images/Sec2/bg.svg)`,
       },
       colors: {
         biru: "#1E234C",
