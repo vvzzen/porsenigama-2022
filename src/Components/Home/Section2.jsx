@@ -126,6 +126,7 @@ const Book = () => {
             alt=""
           ></img>
           <HTMLFlipBook
+            className="overflow-hidden"
             width={572}
             height={769}
             ref={book}
