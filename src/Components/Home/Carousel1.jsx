@@ -119,7 +119,7 @@ const Carousel1 = () => {
               <img src={img} className="w-full object-contain" />
             </div>
           ))}
-          <div className = 'w-full flex justify-end absolute items-center'>          
+          <div className = 'w-full h-full flex justify-end absolute items-center'>          
             <div id = 'textBerita' className = 'w-1/3 text-white text-right mr-3 md:mr-8 cursor-default flex-shrink-0'>
               <div className = 'w-full font-sans font-bold text-md md:text-4xl md:mt-12 object-contain'>
                 {currentTitle}
