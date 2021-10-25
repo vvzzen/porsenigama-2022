@@ -1,4 +1,4 @@
-import { Section1, Section2, SectionMedpartSponsor } from "../Components/Home";
+import { Section1, Section2, Section5, SectionMedpartSponsor } from "../Components/Home";
 import { Title } from "../Components/Home";
 
 const Home = () => {
@@ -7,6 +7,7 @@ const Home = () => {
       <Title />
       <Section1 />
       <Section2 />
+      <Section5 />
       <SectionMedpartSponsor />
     </div>
   );

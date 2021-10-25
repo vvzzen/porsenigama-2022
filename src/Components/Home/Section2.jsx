@@ -232,7 +232,7 @@ const Section2 = () => {
         />
         <Book />
       </div>
-      <img src={`${process.env.PUBLIC_URL}/images/Sec2/bg_end.svg`} alt="" />
+      {/* <img src={`${process.env.PUBLIC_URL}/images/Sec2/bg_end.svg`} alt="" /> */}
     </>
   );
 };
