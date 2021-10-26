@@ -7,7 +7,7 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        sec2: `url(${Host}/images/Sec2/bg.svg)`,
+        sec4: `url(${Host}/images/Sec4/bg.svg)`,
       },
       colors: {
         biru: "#1E234C",
@@ -28,6 +28,7 @@ module.exports = {
             lineHeight: "104px",
           },
         ],
+        twoeight: ["28px"],
         threetwo: [
           "32px",
           {
