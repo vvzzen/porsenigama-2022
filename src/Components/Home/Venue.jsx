@@ -5,16 +5,21 @@ import { v4 as uuidv4 } from "uuid";
 // Ini fungsi tombol slidernya 
 function BtnSlider({ direction, moveSlide }) {
     console.log(direction, moveSlide);
+    const btn = "" ;
     return (
-      <svg
+      <button
         onClick={moveSlide}
-        className={direction === "next" ? "btn-slide next" : "btn-slide prev"}
+        className = {direction === "next" ? `${btn} btn-slide next` : `${btn} btn-slide prev`}
       >
-        <image 
-          href={direction === "next" ? `${process.env.PUBLIC_URL}/images/Sec5/right-circle.png` : '/images/Sec5/left-circle.png' }
-          className = "slide-img"
-        ></image>
-      </svg>
+        <img
+          src={direction === "next" ? `${process.env.PUBLIC_URL}/images/Sec5/right-circle.png` : '/images/Sec5/left-circle.png' }
+          className =  "slide-img hidden md:flex"
+        ></img>
+        <img
+          src= {`${process.env.PUBLIC_URL}/images/Sec5/button-slide.png`}
+          className = "slide-img flex md:hidden"
+        ></img>
+      </button>
     );
 }
 
@@ -23,22 +28,17 @@ function BtnSlider({ direction, moveSlide }) {
 const dataSlider = [
   {
     id: uuidv4(),
-    title: "Lorem ipsum",
+    title: "auditoriumfk",
     subTitle: "Lorem"
   },
   {
     id: uuidv4(),
-    title: "Lorem ipsum",
+    title: "kinanthi",
     subTitle: "Lorem"
   },
   {
     id: uuidv4(),
-    title: "Lorem ipsum",
-    subTitle: "Lorem"
-  },
-  {
-    id: uuidv4(),
-    title: "Lorem ipsum",
+    title: "pascasarjanafk",
     subTitle: "Lorem"
   }
 ];
@@ -71,7 +71,7 @@ export function Venue() {
     // }
 
     return (
-        <div className="container-slider">
+        <div className="relative h-96 md:h-screen">
             {dataSlider.map((obj, index) => {
                 return (
                     <div

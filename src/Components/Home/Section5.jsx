@@ -5,8 +5,8 @@ const Section5 = () => {
   return (
     <>
       <div className="w-full relative bg-biru">
-        <h2 className="text-8xl font-nuku text-kuning bg-biru">Venue</h2>
-        <div className="bg-biru">
+        <h2 className="hidden lg:block text-8xl font-nuku text-kuning bg-biru">Venue</h2>
+        <div className="bg-biru pb-20 lg:pb-40">
           <Venue />
         </div>
       </div>
