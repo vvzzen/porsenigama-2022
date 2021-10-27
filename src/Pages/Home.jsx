@@ -3,6 +3,7 @@ import {
   Section3,
   Section4,
   Section5,
+  Section6,
   SectionMedpartSponsor,
 } from "../Components/Home";
 import { Title } from "../Components/Home";
@@ -15,6 +16,7 @@ const Home = () => {
       <Section3 />
       <Section4 />
       <Section5 />
+      <Section6 />
       <SectionMedpartSponsor />
     </div>
   );

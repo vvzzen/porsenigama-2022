@@ -14,10 +14,12 @@ function BtnSlider({ direction, moveSlide }) {
         <img
           src={direction === "next" ? `${process.env.PUBLIC_URL}/images/Sec5/right-circle.png` : '/images/Sec5/left-circle.png' }
           className =  "slide-img hidden md:flex"
+          alt =""
         ></img>
         <img
           src= {`${process.env.PUBLIC_URL}/images/Sec5/button-slide.png`}
           className = "slide-img flex md:hidden"
+          alt =""
         ></img>
       </button>
     );
@@ -79,6 +81,7 @@ export function Venue() {
                     className={slideIndex === index + 1 ? "slide active-anim" : "slide"}
                     >   
                         <img
+                        alt =""
                         src={process.env.PUBLIC_URL + `/images/Sec5/Imgs/img${index + 1}.jpg`} 
                         />
                     </div>

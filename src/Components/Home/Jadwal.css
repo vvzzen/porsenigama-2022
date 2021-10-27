@@ -1,0 +1,26 @@
+.cabor {
+    text-shadow: 
+        1px 1px 0 #F8BF0D,
+        1px -1px 0 #F8BF0D,
+        -1px 1px 0 #F8BF0D,
+        -1px -1px 0 #F8BF0D;
+}
+
+.vs {
+    text-shadow: 
+        1px 1px 0 #F8BF0D,
+        1px -1px 0 #F8BF0D,
+        -1px 1px 0 #F8BF0D,
+        -1px -1px 0 #F8BF0D,
+        2px 2px 0 #F16224;
+}
+
+.gradient-box{
+    background-image: linear-gradient(to right, rgba(247, 186, 151), rgba(250,213,147));
+}
+.gradient{
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.3), rgba(255,255,255,0.3));
+}
+
+
+
