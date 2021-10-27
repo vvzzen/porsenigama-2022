@@ -2,15 +2,12 @@ import React from 'react'
 import './Carousel1.css'
 
 //array nya diubah sesuai yg mau ditampilin
-const images = ['images/Sec1/Gambar pake pohon.png', 'images/Sec1/Gambar.png', 'images/Sec1/Gambar copy.png']
-const title = ['FT mengalahkan FMIPA dalam cabor sepakbola', 
-              'test2', 
-              'test3']
-const content = ['Hari ini adalah hari yang cerah untuk membunuh seseorang dengan menggunakan rancun tikus dan boraks. Berolahraga sangat baik dilakukan pada pagi dan sore hari saat sinar matahari memancarkan sinar redupnya.', 
-                'test2', 
-                'test3']
+const images = ['images/Sec1/Gambar pake pohon.png', 'images/Sec1/Gambar pake pohon copy.png']
+const title = ['Mengenal Porsenigama', 
+              'test2']
+const content = ['Pekan Olahraga dan Seni Universitas Gadjah Mada (Porsenigama) merupakan suatu ajang kejuaraan olahraga dan seni yang dilaksanakan atas dasar Rancangan Kegiatan Awal Tahun (RKAT) atau program kerja Forum Komunikasi (FORKOM) UKM Universitas Gadjah Mada. Kegiatan ini bertujuan untuk', 
+                'test2']
 const link = ['https://drive.google.com/drive/folders/1KnE-BgbKC6WHKF73ktBtGmeUTm46dXB1?usp=sharing',
-              'https://drive.google.com/drive/folders/1_ljN1RuxX7jDI8GxS_wkYJPlTQWpJHJu?usp=sharing',
               'localhost:3000']
 
 const Carousel1 = () => {
@@ -127,7 +124,9 @@ const Carousel1 = () => {
               <div className = 'w-full font-sansPro hidden md:flex md:text-md mt-2 object-contain'>
                 {currentContent}                  
               </div> 
-              <button className = 'text-yellow-500 cursor-pointer font-sansPro text-sm md:text-md' onClick={readMore}>
+              <button className = 'text-yellow-500 cursor-pointer font-sansPro text-sm md:text-md' 
+              // onClick={readMore}
+              >
                 READ MORE...
               </button>
             </div>
