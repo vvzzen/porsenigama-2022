@@ -29,20 +29,26 @@ function BtnSlider({ direction, moveSlide }) {
 //Kalau mau edit jumlah gambar, tinggal ubah array dataslidernya
 const dataSlider = [
   {
-    id: uuidv4(),
-    title: "auditoriumfk",
-    subTitle: "Lorem"
+    title: "lorem",
   },
   {
-    id: uuidv4(),
-    title: "kinanthi",
-    subTitle: "Lorem"
+    title: "lorem",
   },
   {
-    id: uuidv4(),
-    title: "pascasarjanafk",
-    subTitle: "Lorem"
-  }
+    title: "lorem",
+  },
+  {
+    title: "lorem",
+  },
+  {
+    title: "lorem",
+  },
+  {
+    title: "lorem",
+  },
+  {
+    title: "lorem",
+  },
 ];
 
 
@@ -68,9 +74,6 @@ export function Venue() {
         }
     }
 
-    // const moveDot = index => {
-    //     setSlideIndex(index)
-    // }
 
     return (
         <div className="relative h-96 md:h-screen">
@@ -90,16 +93,6 @@ export function Venue() {
             <BtnSlider moveSlide={nextSlide} direction={"next"} />
             <BtnSlider moveSlide={prevSlide} direction={"prev"}/>
 
-
-            {/* Buat simpenan kalau mau pakai dot */}
-            {/* <div className="container-dots">
-                {Array.from({length: 6}).map((item, index) => (
-                    <div 
-                    onClick={() => moveDot(index + 1)}
-                    className={slideIndex === index + 1 ? "dot active" : "dot"}
-                    ></div>
-                ))}
-            </div> */}
         </div>
     )
 }
