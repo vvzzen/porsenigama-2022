@@ -1,29 +1,51 @@
 const dataSponsor = [
     {
+        "name" : "BTN",
+        "img" : "sponsor/BTN.png",
+        "lebar" : 144,
+    },
+    {
         "name" : "GRS",
         "img" : "sponsor/GRS.png",
-        "lebar" : 96,
+        "lebar" : 64,
     },
     {
         "name" : "Bursa Efek",
         "img" : "sponsor/BE.png ",
-        "lebar" : 96,
+        "lebar" : 64,
     },
     {
         "name" : "PT. KAI",
         "img" : "sponsor/KAI.png ",
-        "lebar" : 96,
+        "lebar" : 64,
     },
     {
         "name" : "Jasa Raharja",
         "img" : "sponsor/JR.png ",
-        "lebar" : 96,
+        "lebar" : 64,
     },
     {
         "name" : "Pam Jaya",
         "img" : "sponsor/PamJaya.jpeg ",
-        "lebar" : 96,
+        "lebar" : 64,
     },
+    {
+        "name" : "Waskita",
+        "img" : "sponsor/wk.png",
+        "lebar" : 64,
+    },
+    {
+        "name" : "snv",
+        "img" : "sponsor/snv.png",
+        "lebar" : 64,
+    },
+    {
+        "name" : "Pilog",
+        "img" : "sponsor/pilog.png",
+        "lebar" : 64,
+    },
+
+
 ]
 const dataMedpart = [
     {

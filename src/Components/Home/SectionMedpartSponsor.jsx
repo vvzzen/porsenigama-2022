@@ -35,9 +35,9 @@ const SectionMedpartSponsor = () => {
                 </div>
 
                 {/* Media Partner */}
-                <div className="pb-8 pt-24 md:px-24 px-4">
+                <div className="pb-8 pt-36 md:px-24 px-4">
                     <div className="relative shadow-2xl pt-16 pb-12 px-8 rounded-20xl bg-white  bg-opacity-50" style={{border:'solid white 10px'}}>
-                        <h2 className="absolute mt-6 md:-top-36 md:left-24 md:text-9xl -top-24 text-7xl font-nuku text-abu">Media Partner</h2>
+                        <h2 className="absolute mt-6 md:-top-48 md:left-24 md:text-9xl -top-48 text-7xl font-nuku text-abu">Media Partner</h2>
                         <div className="relative flex flex-wrap md:gap-8 gap-4 justify-evenly md:mx-16 align-middle">
                             {dataMedpart.map((mediaPartner, index) =>
                                 <div className="self-center">
