@@ -5,7 +5,7 @@ const Title = () => {
         <div className = 'z-30 h-full relative md:flex items-center md:items-stretch md:justify-start md:content-end' >
             <div className = 'h-2'></div>
             <div className = 'md:w-45c cursor-default'>
-                <div className = 'flex items-stretch justify-center md:ml-28 md:justify-start content-end text-6xl md:text-onetwenty md:mt-32 text-biru font-nuku' style = {{ "-webkit-text-stroke": "1.5px #F8BF0D" }}> 
+                <div className = 'flex md:items-stretch ml-8 md:ml-28 md:justify-start md:content-end text-5xl md:text-onetwenty md:mt-32 text-biru font-nuku' style = {{ "-webkit-text-stroke": "1.5px #F8BF0D" }}> 
                     <div style = {{
                             "text-shadow": [
                             "6px 6px 0 #F8BF0D",
@@ -83,7 +83,7 @@ const Title = () => {
                     sportivitas dalam perlombaan yang adil di kalangan mahasiswa UGM. 
                 </p>
             </div>
-            <div className = 'md:hidden text-sm w-2/5 ml-4 font-sansPro absolute text-justify mt-4'>
+            <div className = 'md:hidden text-xs w-2/5 ml-4 font-sansPro absolute text-justify mt-4'>
                 Pekan Olahraga dan Seni Universitas Gadjah Mada merupakan suatu ajang kejuaraan olahraga dan seni yang dilaksanakan 
                 atas dasar RKAT FORKOM UKM Universitas Gadjah Mada.
             </div>

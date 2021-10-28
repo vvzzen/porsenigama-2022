@@ -102,7 +102,7 @@ const Carousel1 = () => {
   // Finally the image itself will be 100% of a parent div. Outer div is
   // set with position relative, so we can place our cotrol buttons using
   // absolute positioning on each side of the image.
-    <div className="p-0 mt-8 md:p-12 flex justify-center w-5/6 md:w-3/4 items-center">
+    <div className="p-0 mt-8 md:p-12 flex justify-center w-3/4 md:w-3/4 items-center">
       <div className="relative w-full">
         <div className="carousel shadow-csel1">
           {sliderControl(true)}

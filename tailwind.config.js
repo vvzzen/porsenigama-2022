@@ -35,6 +35,12 @@ module.exports = {
             lineHeight: "32px",
           },
         ],
+        fortyfour: [
+          "44px",
+          {
+            lineHeight: "44px",
+          },
+        ],
         forty: [
           "40px",
           {
