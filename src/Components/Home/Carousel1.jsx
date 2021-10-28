@@ -92,7 +92,6 @@ const Carousel1 = () => {
   const history = useHistory();
 
   const readMore = () => {
-    console.log(currentLink)
     history.push("/berita", { newsNo : currentLink });
   };
 
