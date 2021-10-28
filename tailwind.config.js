@@ -77,9 +77,16 @@ module.exports = {
             lineHeight: "120px",
           },
         ],
+        xxs: [
+          "0.5rem",
+          {
+            lineHeight: "0.75rem",
+          },
+        ],
       },
       width: {
         "45c": "45%",
+        'box': '13rem',
       },
       boxShadow: {
         csel1: "20px 20px 16px -5px rgba(0, 0, 0, 0.3)",
