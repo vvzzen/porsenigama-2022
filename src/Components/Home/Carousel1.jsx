@@ -1,14 +1,8 @@
 import React from 'react'
 import './Carousel1.css'
+import { images, title, content, link } from '../../data/dataBerita';
+import { useHistory } from 'react-router-dom';
 
-//array nya diubah sesuai yg mau ditampilin
-const images = ['images/Sec1/Gambar pake pohon.png', 'images/Sec1/Gambar pake pohon copy.png']
-const title = ['Mengenal Porsenigama', 
-              'test2']
-const content = ['Pekan Olahraga dan Seni Universitas Gadjah Mada (Porsenigama) merupakan suatu ajang kejuaraan olahraga dan seni yang dilaksanakan atas dasar Rancangan Kegiatan Awal Tahun (RKAT) atau program kerja Forum Komunikasi (FORKOM) UKM Universitas Gadjah Mada. Kegiatan ini bertujuan untuk', 
-                'test2']
-const link = ['https://drive.google.com/drive/folders/1KnE-BgbKC6WHKF73ktBtGmeUTm46dXB1?usp=sharing',
-              'localhost:3000']
 
 const Carousel1 = () => {
   const [currentImage, setCurrentImage] = React.useState(0);
@@ -90,15 +84,16 @@ const Carousel1 = () => {
       style={{ top: '40%' }}
     >
       <span role="img" aria-label={`Arrow ${isLeft ? 'left' : 'right'}`}>
-        <img src={`${isLeft ? 'images/Sec1/Kiri.svg' : 'images/Sec1/Kanan.svg'}`} alt={`${isLeft ? 'Berita Kiri' : 'Berita Kanan'}`} /> 
+        <img src={`${isLeft ? `${process.env.PUBLIC_URL}/images/Sec1/Kiri.svg` : `${process.env.PUBLIC_URL}/images/Sec1/Kanan.svg`}`} alt={`${isLeft ? 'Berita Kiri' : 'Berita Kanan'}`} /> 
       </span>
     </button>
   );
+  
+  const history = useHistory();
 
   const readMore = () => {
-      window.open(
-       currentLink
-      )  
+    console.log(currentLink)
+    history.push("/berita", { newsNo : currentLink });
   };
 
   return (
@@ -125,7 +120,7 @@ const Carousel1 = () => {
                 {currentContent}                  
               </div> 
               <button className = 'text-yellow-500 cursor-pointer font-sansPro text-sm md:text-md' 
-              // onClick={readMore}
+                onClick={readMore}
               >
                 READ MORE...
               </button>
