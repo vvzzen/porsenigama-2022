@@ -5,7 +5,7 @@ const Title = () => {
         <div className = 'z-30 h-full relative md:flex items-center md:items-stretch md:justify-start md:content-end' >
             <div className = 'h-2'></div>
             <div className = 'md:w-45c cursor-default'>
-                <div className = 'flex items-stretch justify-center md:ml-28 md:justify-start content-end text-6xl md:text-oneten lg:text-onefourfour md:mt-32 text-biru font-nuku' style = {{ "-webkit-text-stroke": "1.5px #F8BF0D" }}> 
+                <div className = 'flex items-stretch justify-center md:ml-28 md:justify-start content-end text-6xl md:text-onetwenty md:mt-32 text-biru font-nuku' style = {{ "-webkit-text-stroke": "1.5px #F8BF0D" }}> 
                     <div style = {{
                             "text-shadow": [
                             "6px 6px 0 #F8BF0D",
@@ -76,7 +76,7 @@ const Title = () => {
                         ],
                     }}>AMA</div>
                 </div>
-                <p className = 'font-sansPro text-left md:ml-28 md:mr-8 md:mt-8 hidden md:flex lg:text-2xl'>Pekan Olahraga dan Seni Universitas Gadjah Mada (Porsenigama) merupakan suatu ajang kejuaraan olahraga dan seni yang dilaksanakan 
+                <p className = 'font-sansPro text-left md:ml-28 md:mr-8 md:mt-8 hidden md:flex md:text-lg'>Pekan Olahraga dan Seni Universitas Gadjah Mada (Porsenigama) merupakan suatu ajang kejuaraan olahraga dan seni yang dilaksanakan 
                     atas dasar Rancangan Kegiatan Awal Tahun (RKAT) atau program kerja Forum Komunikasi (FORKOM) UKM Universitas Gadjah Mada. 
                     Porsenigama rutin dilaksanakan setiap tahunnya sebagai wadah penyaluran minat dan bakat mahasiswa Universitas Gadjah Mada (UGM) di 
                     bidang non-akademik, khususnya bidang olahraga dan seni. Porsenigama sendiri bertujuan untuk menumbuhkan kreativitas dan 

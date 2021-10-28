@@ -71,6 +71,12 @@ module.exports = {
             lineHeight: "144px",
           },
         ],
+        onetwenty: [
+          "120px",
+          {
+            lineHeight: "120px",
+          },
+        ],
       },
       width: {
         "45c": "45%",
