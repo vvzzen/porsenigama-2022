@@ -1,6 +1,5 @@
 import React, {useState} from 'react'
 import './Venue.css'
-import { v4 as uuidv4 } from "uuid";
 
 // Ini fungsi tombol slidernya 
 function BtnSlider({ direction, moveSlide }) {
