@@ -22,5 +22,22 @@
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0.3), rgba(255,255,255,0.3));
 }
 
+.item-wrapper{
+    margin-bottom: 10px;
+}
+
+.rec.rec-arrow {
+    display: none;
+}
+
+.rec.rec-pagination {
+    display: none;
+}
+
+.button{
+    transform: translate(-50%,-50%);
+    top: 45%;
+    left: 45%;
+}
 
 

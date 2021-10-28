@@ -1,18 +1,21 @@
 import './Jadwal.css'
 import { dataJadwal } from '../../data/dataJadwalTanding';
+import Carousel from 'react-elastic-carousel'
+import React from 'react';
 
-const box = "gradient-box w-44 lg:w-52 bg-krem2 border border-oren2 rounded-3xl relative"
-const cont1 = "w-32 lg:w-40 bg-gradient-to-r from-krem via-krem3 to-krem3  p-2 bg-krem3 rounded-3xl mx-6 my-4 border-white border"
+
+const box = "gradient-box w-56 h-56 lg:w-52 bg-krem2 border border-oren2 rounded-3xl relative"
+const cont1 = "bg-gradient-to-r from-krem via-krem3 to-krem3  p-2 bg-krem3 rounded-3xl mx-6 my-4 border-white border"
 const cont2 = "mx-2 h-20 mb-12 grid grid-cols-3 justify-item-center text-center content-center"
 const cont3 = "grid grid-row-2 font-bold justify-item-center"
-const events = "text-2xl font-nuku w-full text-center"
+const events = "text-sm lg:text-2xl font-nuku w-full text-center"
 const photo = "text-center w-11/12 relative border-50% rounded-full"
 const frame = "w-full absolute top-0 right-0 rounded-lg"
 
 
 export function Tes({cabor, party1 ,img1, party2,img2, jam, tanggal, tempat}){
     return(
-        <div className="relative">
+        <div className="relative mb-8">
         <div className = {box}>
             <div className = {cont1}>
                 <div>
@@ -51,25 +54,81 @@ export function Tes({cabor, party1 ,img1, party2,img2, jam, tanggal, tempat}){
     )
 }
 
+const button =  "relative item-center w-12 bg-biru h-12 translate-x-1/2 rounded-full"
 
-
-export const Jadwal = (props) =>{
+class Jadwal extends React.Component {
+    constructor(props) {
+        super(props)
+        this.breakPoints = [
+          { width: 1, itemsToShow: 1 },
+          { width: 550, itemsToShow: 2 },
+          { width: 800, itemsToShow: 3 },
+          { width: 850, itemsToShow: 4 },
+          { width: 1450, itemsToShow: 5 },
+        ]
+    }
+    render(){
     return(
-        <div className="grid grid-cols-5 justify-items-center mx-20">
-            {dataJadwal.map((card, index) =>
+        <div className="lg:mx-20">
+            <div className="hidden xl:grid grid-cols-5 justify-items-center">
+                {dataJadwal.map((card, index) =>
                 <Tes
                     cabor= {card.cabor}
                     party1= {card.party1}
                     img1= {card.img1}
                     party2 = {card.party2}
                     img2 = {card.img2}
-                    jam = {card.jam}
+                    jam = { card.jam}
                     tanggal = {card.tanggal}
                     tempat = {card.tempat}
                 />
             )}
+            </div>
+            <div className="relative xl:hidden grid grid-cols-9 justify-item-center">
+                <button 
+                    className ={button + " button"}
+                    onClick={() => this.carousel.slidePrev()}>
+                    <img 
+                        src={`${process.env.PUBLIC_URL}/images/Sec6/left-arrow.png`} 
+                        style={{ 
+                            position:"absolute",
+                            top:"50%",
+                            left:"50%",
+                            transform: "translate(-50%,-50%)",
+                            height:"2rem"}}
+                        alt="" />
+                </button>
+                <Carousel className="col-span-7"breakPoints={this.breakPoints} ref={ref => (this.carousel = ref)}>
+                    {dataJadwal.map((card, index) =>
+                    <Tes
+                        cabor= {card.cabor}
+                        party1= {card.party1}
+                        img1= {card.img1}
+                        party2 = {card.party2}
+                        img2 = {card.img2}
+                        jam = {card.jam}
+                        tanggal = {card.tanggal}
+                        tempat = {card.tempat}
+                        />
+                    )}
+                </Carousel>
+                <button className={button + " button"}  
+                        onClick={() => this.carousel.slideNext() 
+                        }> 
+                        <img 
+                            src={`${process.env.PUBLIC_URL}/images/Sec6/right-arrow.png`} 
+                            style={{ 
+                                position:"absolute",
+                                top:"50%",
+                                left:"50%",
+                                transform: "translate(-50%,-50%)",
+                                height:"2rem"}}
+                            alt="" />
+                </button>
+            </div>
         </div>
     )
+    }
 }
 
 export default Jadwal;
