@@ -1,5 +1,5 @@
 import { Navbar, Footer } from "./Components/Layout";
-import { Home, Standings } from "./Pages";
+import { Home, Standings, News } from "./Pages";
 import { Switch, Route } from "react-router-dom";
 
 function App() {
@@ -9,6 +9,7 @@ function App() {
       <Switch>
         <Route path="/" exact component={Home}></Route>
         <Route path="/klasemen" exact component={Standings} />
+        <Route path="/berita" exact component={News} />
       </Switch>
       <Footer />
     </div>

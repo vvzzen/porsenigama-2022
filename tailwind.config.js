@@ -16,9 +16,6 @@ module.exports = {
         kuning: "#F8BF0D",
         oren: "#F16224",
         abu: "#5D568C",
-        krem2: "#F9CA95",
-        oren2: "#F37E48",
-        krem3: "#D2AB7E",
       },
       fontFamily: {
         nuku: ["Nuku Nuku", "sans-serif"],
@@ -74,16 +71,9 @@ module.exports = {
             lineHeight: "144px",
           },
         ],
-        xxs: [
-          "0.5rem",
-          {
-            lineHeight: "0.75rem",
-          },
-        ],
       },
       width: {
         "45c": "45%",
-        'box': '13rem',
       },
       boxShadow: {
         csel1: "20px 20px 16px -5px rgba(0, 0, 0, 0.3)",
