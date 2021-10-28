@@ -1,17 +1,8 @@
 import React from 'react'
 import './Carousel1.css'
+import { images, title, content, link } from '../../data/dataBerita';
+import { useHistory } from 'react-router-dom';
 
-//array nya diubah sesuai yg mau ditampilin
-const images = ['images/Sec1/Gambar pake pohon.png', 'images/Sec1/Gambar.png', 'images/Sec1/Gambar copy.png']
-const title = ['FT mengalahkan FMIPA dalam cabor sepakbola', 
-              'test2', 
-              'test3']
-const content = ['Hari ini adalah hari yang cerah untuk membunuh seseorang dengan menggunakan rancun tikus dan boraks. Berolahraga sangat baik dilakukan pada pagi dan sore hari saat sinar matahari memancarkan sinar redupnya.', 
-                'test2', 
-                'test3']
-const link = ['https://drive.google.com/drive/folders/1KnE-BgbKC6WHKF73ktBtGmeUTm46dXB1?usp=sharing',
-              'https://drive.google.com/drive/folders/1_ljN1RuxX7jDI8GxS_wkYJPlTQWpJHJu?usp=sharing',
-              'localhost:3000']
 
 const Carousel1 = () => {
   const [currentImage, setCurrentImage] = React.useState(0);
@@ -93,15 +84,16 @@ const Carousel1 = () => {
       style={{ top: '40%' }}
     >
       <span role="img" aria-label={`Arrow ${isLeft ? 'left' : 'right'}`}>
-        <img src={`${isLeft ? 'images/Sec1/Kiri.svg' : 'images/Sec1/Kanan.svg'}`} alt={`${isLeft ? 'Berita Kiri' : 'Berita Kanan'}`} /> 
+        <img src={`${isLeft ? `${process.env.PUBLIC_URL}/images/Sec1/Kiri.svg` : `${process.env.PUBLIC_URL}/images/Sec1/Kanan.svg`}`} alt={`${isLeft ? 'Berita Kiri' : 'Berita Kanan'}`} /> 
       </span>
     </button>
   );
+  
+  const history = useHistory();
 
   const readMore = () => {
-      window.open(
-       currentLink
-      )  
+    console.log(currentLink)
+    history.push("/berita", { newsNo : currentLink });
   };
 
   return (
@@ -127,7 +119,9 @@ const Carousel1 = () => {
               <div className = 'w-full font-sansPro hidden md:flex md:text-md mt-2 object-contain'>
                 {currentContent}                  
               </div> 
-              <button className = 'text-yellow-500 cursor-pointer font-sansPro text-sm md:text-md' onClick={readMore}>
+              <button className = 'text-yellow-500 cursor-pointer font-sansPro text-sm md:text-md' 
+                onClick={readMore}
+              >
                 READ MORE...
               </button>
             </div>
