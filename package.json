@@ -1,5 +1,6 @@
 {
   "name": "porsenigama-2021",
+  "homepage": "/2021/porsenigama",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

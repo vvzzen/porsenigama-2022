@@ -88,20 +88,20 @@ const Title = () => {
                 atas dasar RKAT FORKOM UKM Universitas Gadjah Mada.
             </div>
             <div className = 'h-full relative overflow-hidden hidden md:flex'>
-                <img src="images/Title/Sun.svg" alt="Sun behind Pagoda" className = 'z-30 absolute mt-20 ml-6 transform scale-95 overflow-hidden' style = {{
+                <img src={`${process.env.PUBLIC_URL}/images/Title/Sun.svg`} alt="Sun behind Pagoda" className = 'z-30 absolute mt-20 ml-6 transform scale-95 overflow-hidden' style = {{
                     '-moz-user-select': 'none',
                     '-webkit-user-select': 'none',
                     'user-select':' none',
                     'pointer-events': 'none'
                 }}/>
-                <img src='images/Title/Group 5.svg' alt="Images of Pagoda" className = 'z-50 relative right-10 mt-6 transform scale-95' style = {{
+                <img src={`${process.env.PUBLIC_URL}/images/Title/Group 5.svg`} alt="Images of Pagoda" className = 'z-50 relative right-10 mt-6 transform scale-95' style = {{
                     '-moz-user-select': 'none',
                     '-webkit-user-select': 'none',
                     'user-select':' none',
                     'pointer-events': 'none'
                 }}/>
             </div>
-            <img src='images/Title/Group 45.png' alt="Mountain" className = 'z-40 absolute mt-2 md:mt-12' style = {{
+            <img src={`${process.env.PUBLIC_URL}/images/Title/Group 45.png`} alt="Mountain" className = 'z-40 absolute mt-2 md:mt-12' style = {{
                 '-moz-user-select': 'none',
                 '-webkit-user-select': 'none',
                 'user-select':' none',
