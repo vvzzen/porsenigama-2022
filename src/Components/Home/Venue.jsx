@@ -11,7 +11,7 @@ function BtnSlider({ direction, moveSlide }) {
         className = {direction === "next" ? `${btn} btn-slide next` : `${btn} btn-slide prev`}
       >
         <img
-          src={direction === "next" ? `${process.env.PUBLIC_URL}/images/Sec5/right-circle.png` : '/images/Sec5/left-circle.png' }
+          src={direction === "next" ? `${process.env.PUBLIC_URL}/images/Sec5/right-circle.png` : `${process.env.PUBLIC_URL}/images/Sec5/left-circle.png` }
           className =  "slide-img hidden md:flex transform transition duration-300 md:hover:scale-110"
           alt =""
         ></img>

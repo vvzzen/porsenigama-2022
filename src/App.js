@@ -7,9 +7,9 @@ function App() {
     <div>
       <Navbar />
       <Switch>
-        <Route path="/" exact component={Home}></Route>
-        <Route path="/klasemen" exact component={Standings} />
-        <Route path="/berita" exact component={News} />
+        <Route path={`${process.env.PUBLIC_URL}/`} exact component={Home}></Route>
+        <Route path={`${process.env.PUBLIC_URL}/klasemen`} exact component={Standings} />
+        <Route path={`${process.env.PUBLIC_URL}/berita`} exact component={News} />
       </Switch>
       <Footer />
     </div>
