@@ -6,9 +6,6 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
-      backgroundImage: {
-        sec4: `url(${Host}/images/Sec4/bg.svg)`,
-      },
       colors: {
         biru: "#1E234C",
         krem: "#FBE5D2",
@@ -92,7 +89,13 @@ module.exports = {
       },
       width: {
         "45c": "45%",
-        'box': '13rem',
+        box: "13rem",
+        porciText: "102.542373px",
+        porciPlay: "58.4745762px",
+        porciTextMd: "22.787194%",
+        porciPlayMd: "12.994350267%",
+        porciTextXl: "34.180791%",
+        porciPlayXl: "19.4915254%",
       },
       boxShadow: {
         csel1: "20px 20px 16px -5px rgba(0, 0, 0, 0.3)",
