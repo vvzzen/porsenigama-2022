@@ -15,7 +15,7 @@ const Book = () => {
   return (
     <div className="flex items-center justify-center h-full py-40 px-5">
       <button
-        className="mr-16 w-28"
+        className="mr-16 w-28 transform transition duration-300 md:hover:scale-110"
         onClick={() => book.current.pageFlip().flipPrev()}
       >
         <img
@@ -94,7 +94,7 @@ const Book = () => {
         </HTMLFlipBook>
       </div>
       <button
-        className="ml-16 w-28"
+        className="ml-16 w-28 transform transition duration-300 md:hover:scale-110"
         onClick={() => book.current.pageFlip().flipNext()}
       >
         <img

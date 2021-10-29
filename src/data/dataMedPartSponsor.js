@@ -80,12 +80,12 @@ const dataMedpart = [
     },
     {
         "name" : "BPPM FKH",
-        "img" : "medpart/Medpart_BPPM FKH_L.JPEG",
+        "img" : "medpart/Medpart_BPPM FKH_L.jpeg",
         "lebar" : 48
     },
     {
         "name" : "Atmajaya Radio",
-        "img" : "medpart/Medpart_Atmajaya Radio_M.PNG",
+        "img" : "medpart/Medpart_Atmajaya Radio_M.png",
         "lebar" : 32
     },
     {
