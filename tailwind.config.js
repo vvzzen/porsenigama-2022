@@ -13,6 +13,7 @@ module.exports = {
         kuning: "#F8BF0D",
         oren: "#F16224",
         abu: "#5D568C",
+        birdong : "#1E234C",
       },
       fontFamily: {
         nuku: ["Nuku Nuku", "sans-serif"],

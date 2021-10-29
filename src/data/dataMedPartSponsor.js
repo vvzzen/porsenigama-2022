@@ -7,22 +7,22 @@ const dataSponsor = [
     {
         "name" : "GRS",
         "img" : "sponsor/GRS.png",
-        "lebar" : 64,
+        "lebar" : 80,
     },
     {
         "name" : "Bursa Efek",
         "img" : "sponsor/BE.png ",
-        "lebar" : 64,
+        "lebar" : 72,
     },
     {
         "name" : "PT. KAI",
         "img" : "sponsor/KAI.png ",
-        "lebar" : 64,
+        "lebar" : 72,
     },
     {
         "name" : "Jasa Raharja",
         "img" : "sponsor/JR.png ",
-        "lebar" : 64,
+        "lebar" : 96,
     },
     {
         "name" : "Pam Jaya",
@@ -42,7 +42,12 @@ const dataSponsor = [
     {
         "name" : "Pilog",
         "img" : "sponsor/pilog.png",
-        "lebar" : 64,
+        "lebar" : 80,
+    },
+    {
+        "name" : "Jamkrindo",
+        "img" : "sponsor/Jamkrindo.jpg",
+        "lebar" : 80,
     },
 
 
@@ -75,12 +80,12 @@ const dataMedpart = [
     },
     {
         "name" : "BPPM FKH",
-        "img" : "medpart/Medpart_BPPM FKH_L.jpeg",
+        "img" : "medpart/Medpart_BPPM FKH_L.JPEG",
         "lebar" : 48
     },
     {
         "name" : "Atmajaya Radio",
-        "img" : "medpart/Medpart_Atmajaya Radio_M.png",
+        "img" : "medpart/Medpart_Atmajaya Radio_M.PNG",
         "lebar" : 32
     },
     {

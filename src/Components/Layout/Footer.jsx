@@ -10,7 +10,7 @@ import {
 const Footer = () => {
   return (
     <div className="relative text-white overflow-hidden z-20">
-      <div className="md:flex justify-evenly bg-red-500 pt-6 pb-12 md:px-8 px-6">
+      <div className="md:flex justify-evenly bg-birdong pt-6 pb-12 md:px-8 px-6">
         <div className="md:w-120 words-wrap border-4 border-white px-4 py-2 rounded-3xl mb-4">
           <p className="text-base md:text-lg uppercase font-semibold">
             FORUM KOMUNIKASI UNIT KEGIATAN MAHASISWA UNIVERSITAS GADJAH MADA
