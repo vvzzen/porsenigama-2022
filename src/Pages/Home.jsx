@@ -14,7 +14,9 @@ const Home = () => {
       <Title />
       <Section1 />
       <Section3 />
-      <Section4 />
+      <div className="hidden lg:block">
+        <Section4 />
+      </div>
       <Section5 />
       <Section6 />
       <SectionMedpartSponsor />

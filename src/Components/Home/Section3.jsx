@@ -110,43 +110,38 @@ const Section3 = () => {
         src={`${process.env.PUBLIC_URL}/images/Sec3/kotak_catur.svg`}
         alt=""
       />
-      <div className="z-10 relative flex items-center w-5/6 mx-auto mt-8">
-        <div className="w-1/2">
-          <p className="font-nuku text-left 2xl:text-onefourfour xl:text-oneten whitespace-nowrap text-biru capitalize">
+      <div className="z-10 relative flex md:flex-row flex-col items-center w-5/6 mx-auto mt-8">
+        <div className="w-full md:w-2/3 xl:w-1/2">
+          <p className="font-nuku text-left 2xl:text-onefourfour xl:text-oneten lg:text-7xl md:text-5xl text-4xl whitespace-nowrap text-biru capitalize">
             Our Mascot
           </p>
           <div className="flex space-x-3 py-3">
             <img
+              className="xl:w-porciTextXl md:w-porciTextMd w-porciText"
               src={`${process.env.PUBLIC_URL}/images/Sec3/porci_teks.svg`}
               alt=""
             />
-            <button
-              className="rounded-full"
-              onClick={window.open("https://google.com")}
-            >
-              <img
-                src={`${process.env.PUBLIC_URL}/images/Sec3/play.svg`}
-                alt=""
-              />
-            </button>
+            <img
+              className="xl:w-porciPlayXl md:w-porciPlayMd w-porciPlay"
+              src={`${process.env.PUBLIC_URL}/images/Sec3/play.svg`}
+              alt=""
+            />
           </div>
-          <p className="font-sansPro 2xl:text-twoeight text-left text-biru">
-            Maskot porsenigama adalah seekor panda yang mempresentasikan
-            kekuatan luar biasa yang ada dalam jati dirinya namun tetap dapat
-            menunjukan kepada dunia bahwa disamping kekuatan itu ada pribadi
-            yang menyenangkan sehingga disukai banyak orang. Maskot porsenigama
-            adalah seekor panda yang menggambarkan kekuatan luar biasa
+          <p className="font-sansPro 2xl:text-twoeight xl:text-2xl lg:text-lg md:text-md text-lg text-left text-biru">
+            Porchi, Sang Maskot Porsenigama digambarkan oleh sosok burung elang
+            yang memiliki ciri fisik gagah dan kuat Porchi juga memiliki sifat
+            yang sangat gigih, berani, tidak kenal lelah, dan selalu berpegang
+            teguh pada prinsip.
           </p>
         </div>
         <img
-          className="z-10 relative w-1/3 ml-28"
+          className="z-10 relative md:w-1/3 sm:w-1/2 w-4/5 lg:ml-28"
           src={`${process.env.PUBLIC_URL}/images/Sec3/porci.png`}
           alt=""
         />
       </div>
       <img
-        className="absolute"
-        style={{ bottom: "-3%" }}
+        className="relative"
         src={`${process.env.PUBLIC_URL}/images/Sec3/bg_end.svg`}
         alt=""
       />
