@@ -15,4 +15,7 @@
         scrollbar-width: none; /* For Firefox */
         -ms-overflow-style: none; /* For Internet Explorer and Edge */
     }
-}
+    .text-shadow-black{
+      text-shadow: 4px 4px #000;
+  }
+  }
