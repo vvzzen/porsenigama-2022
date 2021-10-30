@@ -9,11 +9,14 @@ const Navbar = () => {
       <div>  
         <div className="flex justify-center gap-x-12 py-6 text-medium md:text-lg lg:text-xl mr-8">
           <div>
-            <Link to="/">Beranda</Link>
+            <Link to="/2021/porsenigama">Beranda</Link>
           </div>
-          {/* <div>
-            <Link to="/klasemen">Klasemen</Link>
-          </div> */}
+          <div>
+            <Link to="/2021/porsenigama/faq">Faq</Link>
+          </div>
+          <div>
+            <Link to="/2021/porsenigama/klasemen">Klasemen</Link>
+          </div>
         </div>
       </div>
     </nav>
