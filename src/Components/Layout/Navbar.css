@@ -1,0 +1,9 @@
+nav {
+    top: 0;
+    transition: transform 150ms ease-in-out;
+    z-index: 100;
+}
+  
+nav.nav-bar--hidden {
+    transform: translateY(-100%);
+}
