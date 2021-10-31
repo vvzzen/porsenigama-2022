@@ -1,8 +1,10 @@
 import { db } from "../Components/Standings";
 import { useState, useEffect } from "react";
+import { useHistory } from 'react-router-dom'
 
 const Standings = () => {
   const [standingsData, setStandingsData] = useState([]);
+  const history = useHistory();
 
   useEffect(() => {
     const medalsData = db.collection("standings").onSnapshot((snap) => {
@@ -32,35 +34,89 @@ const Standings = () => {
       return medalsData();
     });
   }, []);
+
+  const goBack = () => {
+    history.push(`${process.env.PUBLIC_URL}/`);
+  };
+
   return (
-    <div className="min-h-screen">
-      <h1 className="font-bold pt-24 text-center text-4xl">Klasemen</h1>
-      <div className="w-screen flex justify-center my-12 text-center">
-        <table>
+    <div className="min-h-screen font-nuku tracking-wide bg-krem relative overflow-hidden">
+      <img src={`${process.env.PUBLIC_URL}/images/Standings/bg.svg`} alt="" className='absolute'/>
+      <div className='h-96'></div>
+      <h1 className="font-bold pt-24 text-center text-9xl tracking-wider relative text-biru"
+          style = {{
+              "text-shadow": [
+                "-1px -1px 0 #FBE5D2",
+                "-0.5px -1px 0 #FBE5D2",
+                "0px -1px 0 #FBE5D2",
+                "0.5px -1px 0 #FBE5D2",
+                "1px -1px 0 #FBE5D2",
+                "1.5px -0.5px 0 #FBE5D2",
+                "2px 0px 0 #FBE5D2",
+                "2.5px 0.5px 0 #FBE5D2",
+                "3px 1px 0 #FBE5D2",
+                "3.5px 1.5px 0 #FBE5D2",
+                "4px 2px 0 #FBE5D2",
+                "4.5px 3.5px 0 #FBE5D2",
+                "5px 3px 0 #FBE5D2",
+                "-1px 0px 0 #FBE5D2",
+                "-1px 1px 0 #FBE5D2",
+                "-0.5px 1.5px 0 #FBE5D2",
+                "0px 2px 0 #FBE5D2",
+                "0.5px 2.5px 0 #FBE5D2",
+                "1px 1px 0 #FBE5D2",
+                "1.5px 1.5px 0 #FBE5D2",
+                "2px 2px 0 #FBE5D2",
+                "2.5px 2.5px 0 #FBE5D2",
+                "3px 3px 0 #FBE5D2",
+                "3.5px 3.5px 0 #FBE5D2",
+                "4px 4px 0 #FBE5D2",
+                "4.5px 4.5px 0 #FBE5D2",
+                "5px 5px 0 #FBE5D2",
+                "1px 3px 0 #FBE5D2",
+                "1.5px 3.5px 0 #FBE5D2",
+                "2px 4px 0 #FBE5D2",
+                "2.5px 4.5px 0 #FBE5D2",
+                "3px 5px 0 #FBE5D2",
+              ],
+          }}>Klasemen</h1>
+      <div className='h-64'></div>
+      <div className="w-full flex justify-center my-12 text-center relative">
+        <table className="text-4xl mx-12">
           <thead>
-            <tr className="text-medium">
-              <th className="px-6 border-2">no</th>
-              <th className="px-6 border-2">Fakultas/Sekolah</th>
-              <th className="px-6 border-2">Emas</th>
-              <th className="px-6 border-2">Perak</th>
-              <th className="px-6 border-2">Perunggu</th>
-              <th className="px-6 border-2">total</th>
+            <tr>
+              <th className="px-6 border-3 border-ungugaje" style={{'border-top':'none', 'border-left':'none'}}></th>
+              <th className="px-6 border-3 border-ungugaje" align='center' style={{'border-top':'none'}}> 
+                <img src={`${process.env.PUBLIC_URL}/images/Standings/Mendali gold.png`} alt="Tabel perolehan medali emas" className='w-1/2 h-1/2' /> 
+              </th>
+              <th className="px-6 border-3 border-ungugaje" align='center' style={{'border-top':'none'}}> 
+                <img src={`${process.env.PUBLIC_URL}/images/Standings/Mendali silver.png`} alt="Tabel perolehan medali emas" className='w-1/2 h-1/2' /> 
+              </th>
+              <th className="px-6 border-3 border-ungugaje" align='center' style={{'border-top':'none'}}> 
+                <img src={`${process.env.PUBLIC_URL}/images/Standings/Mendali bronze.png`} alt="Tabel perolehan medali emas" className='w-1/2 h-1/2' /> 
+              </th>
+              <th className="px-6 border-3 border-ungugaje" style={{'border-top':'none'}}>total</th>
             </tr>
           </thead>
           <tbody>
             {standingsData.map((faculty, index) => (
               <tr key={faculty.name}>
-                <td className="px-6 border">{index + 1}</td>
-                <td className="px-6 border text-left">{faculty.name}</td>
-                <td className="px-6 border">{faculty.gold}</td>
-                <td className="px-6 border">{faculty.silver}</td>
-                <td className="px-6 border">{faculty.bronze}</td>
-                <td className="px-6 border">{faculty.total}</td>
+                <td className="px-6 border-3 text-left border-ungugaje" style={{'border-left':'none', 'border-bottom':'none'}}>{faculty.name}</td>
+                <td className="px-6 border-3 border-ungugaje" style={{'border-bottom':'none'}}>{faculty.gold}</td>
+                <td className="px-6 border-3 border-ungugaje" style={{'border-bottom':'none'}}>{faculty.silver}</td>
+                <td className="px-6 border-3 border-ungugaje" style={{'border-bottom':'none'}}>{faculty.bronze}</td>
+                <td className="px-6 border-3 border-ungugaje" style={{'border-bottom':'none'}}>{`${faculty.silver + faculty.gold + faculty.bronze}`}</td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
+      <button className='cursor-pointer transform scale-75 md:scale-100 transition duration-300 md:hover:scale-105 ml-20 mt-20'
+        onClick={goBack}
+      >
+        <img src={`${process.env.PUBLIC_URL}/images/News/Back.svg`} alt="" />
+      </button>
+      <div className='h-20'></div>
     </div>
   );
 };

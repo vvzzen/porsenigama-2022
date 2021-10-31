@@ -15,6 +15,7 @@ module.exports = {
         oren: "#F16224",
         abu: "#5D568C",
         birdong : "#1E234C",
+        ungugaje: "#5D568B",
       },
       fontFamily: {
         nuku: ["Nuku Nuku", "sans-serif"],
@@ -113,6 +114,9 @@ module.exports = {
         35: ".35",
         40: ".4",
       },
+      borderWidth: {
+        '3': '3px',
+      }
     },
   },
   variants: {

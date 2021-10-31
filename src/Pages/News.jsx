@@ -13,8 +13,6 @@ const News = () => {
 
     let newsNo = location.state.newsNo 
 
-    const bgurl = `${process.env.PUBLIC_URL}/images/News/Group 55.svg`
-
     return (
         <>
         <div className='text-3xl md:text-6xl font-nuku bg-oren md:ml-24 pb-6 pt-12 text-white rounded-b-3xl text-center absolute w-full md:w-1/3'>
