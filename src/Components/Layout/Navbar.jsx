@@ -18,12 +18,12 @@ const Navbar = () => {
   }, [scroll.y, scroll.lastY]);
 
   return (
-    <nav className={navClassList.join(" ") + " navbar fixed z-100 w-full flex justify-between bg-red-700"}>
-      <div className="flex justify-center align-center content-center ml-8">
-        <img src="images/Title/logo porseni traced.svg" alt="" className="transform md:scale-110 lg:scale-150" />
+    <nav className={navClassList.join(" ") + " navbar fixed z-100 w-full flex justify-between bg-red-700 font-sans text-white"}>
+      <div className="flex justify-center align-center content-center ml-2 md:ml-8">
+        <img src={`${process.env.PUBLIC_URL}/images/Title/logo porseni traced.svg`} alt="logo porseni gan" className="transform md:scale-110" />
       </div>
       <div>
-        <div className="flex justify-center gap-x-12 py-6 text-medium md:text-lg lg:text-xl mr-8">
+        <div className="flex justify-center gap-x-12 py-3 text-sm md:text-base lg:text-lg mr-8">
           <div>
             <Link to="/2021/porsenigama">Beranda</Link>
           </div>

@@ -98,6 +98,7 @@ module.exports = {
         porciPlayMd: "12.994350267%",
         porciTextXl: "34.180791%",
         porciPlayXl: "19.4915254%",
+        "30c": "30%",
       },
       boxShadow: {
         csel1: "20px 20px 16px -5px rgba(0, 0, 0, 0.3)",

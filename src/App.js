@@ -6,6 +6,7 @@ function App() {
   return (
     <div>
       <Navbar />
+      <div className = 'h-10'></div>
       <Switch>
         <Route path={`${process.env.PUBLIC_URL}/`} exact component={Home}></Route>
         <Route path={`${process.env.PUBLIC_URL}/klasemen`} exact component={Standings} />
