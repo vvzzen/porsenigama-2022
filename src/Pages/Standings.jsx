@@ -42,10 +42,10 @@ const Standings = () => {
   return (
     <div className="min-h-screen font-nuku tracking-wide bg-krem relative overflow-hidden">
       <img src={`${process.env.PUBLIC_URL}/images/Standings/bg.svg`} alt="" className='absolute'/>
-      <div className='h-96'></div>
-      <h1 className="font-bold pt-24 text-center text-9xl tracking-wider relative text-biru"
+      <div className='h-4 md:h-96'></div>
+      <h1 className="font-bold pt-24 text-center text-5xl md:text-9xl tracking-wider relative text-biru"
           style = {{
-              "text-shadow": [
+              "textShadow": [
                 "-1px -1px 0 #FBE5D2",
                 "-0.5px -1px 0 #FBE5D2",
                 "0px -1px 0 #FBE5D2",
@@ -80,20 +80,20 @@ const Standings = () => {
                 "3px 5px 0 #FBE5D2",
               ],
           }}>Klasemen</h1>
-      <div className='h-64'></div>
+      <div className='h-6 md:h-64'></div>
       <div className="w-full flex justify-center my-12 text-center relative">
-        <table className="text-4xl mx-12">
+        <table className="text-xs md:text-4xl mx-12">
           <thead>
             <tr>
               <th className="px-6 border-3 border-ungugaje" style={{'border-top':'none', 'border-left':'none'}}></th>
               <th className="px-6 border-3 border-ungugaje" align='center' style={{'border-top':'none'}}> 
-                <img src={`${process.env.PUBLIC_URL}/images/Standings/Mendali gold.png`} alt="Tabel perolehan medali emas" className='w-1/2 h-1/2' /> 
+                <img src={`${process.env.PUBLIC_URL}/images/Standings/Mendali gold.png`} alt="Tabel perolehan medali emas" className='transform scale-150 md:scale-100 md:w-1/2 md:h-1/2' /> 
               </th>
               <th className="px-6 border-3 border-ungugaje" align='center' style={{'border-top':'none'}}> 
-                <img src={`${process.env.PUBLIC_URL}/images/Standings/Mendali silver.png`} alt="Tabel perolehan medali emas" className='w-1/2 h-1/2' /> 
+                <img src={`${process.env.PUBLIC_URL}/images/Standings/Mendali silver.png`} alt="Tabel perolehan medali emas" className='transform scale-150 md:scale-100 md:w-1/2 md:h-1/2' /> 
               </th>
               <th className="px-6 border-3 border-ungugaje" align='center' style={{'border-top':'none'}}> 
-                <img src={`${process.env.PUBLIC_URL}/images/Standings/Mendali bronze.png`} alt="Tabel perolehan medali emas" className='w-1/2 h-1/2' /> 
+                <img src={`${process.env.PUBLIC_URL}/images/Standings/Mendali bronze.png`} alt="Tabel perolehan medali emas" className='transform scale-150 md:scale-100 md:w-1/2 md:h-1/2' /> 
               </th>
               <th className="px-6 border-3 border-ungugaje" style={{'border-top':'none'}}>total</th>
             </tr>
@@ -111,12 +111,12 @@ const Standings = () => {
           </tbody>
         </table>
       </div>
-      <button className='cursor-pointer transform scale-75 md:scale-100 transition duration-300 md:hover:scale-105 ml-20 mt-20'
+      <button className='cursor-pointer transform scale-50 md:scale-100 transition duration-300 md:hover:scale-105 ml-4 md:ml-20'
         onClick={goBack}
       >
         <img src={`${process.env.PUBLIC_URL}/images/News/Back.svg`} alt="" />
       </button>
-      <div className='h-20'></div>
+      <div className='h-4 md:h-20'></div>
     </div>
   );
 };

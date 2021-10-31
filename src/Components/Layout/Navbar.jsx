@@ -23,7 +23,7 @@ const Navbar = () => {
         <img src={`${process.env.PUBLIC_URL}/images/Title/logo porseni traced.svg`} alt="logo porseni gan" className="transform md:scale-110" />
       </div>
       <div>
-        <div className="flex justify-center gap-x-12 py-3 text-sm md:text-base lg:text-lg mr-8">
+        <div className="flex justify-center gap-x-2 md:gap-x-12 py-3 text-sm md:text-base lg:text-lg mr-2 md:mr-8">
           <div>
             <Link to="/2021/porsenigama">Beranda</Link>
           </div>
