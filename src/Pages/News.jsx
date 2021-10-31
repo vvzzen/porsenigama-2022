@@ -13,7 +13,7 @@ const News = () => {
 
     let newsNo = location.state.newsNo 
 
-
+    const bgurl = `${process.env.PUBLIC_URL}/images/News/Group 55.svg`
 
     return (
         <>
@@ -22,7 +22,7 @@ const News = () => {
         </div>
         <img src={`${process.env.PUBLIC_URL}/images/News/Group 55.svg`} alt="" className='transform scale-50 absolute hidden md:flex' style={{'left' : '41%', 'top' : '20%'}} />
         <div className="md:min-h-screen min-w-full text-center flex flex-wrap gap-y-2 md:gap-y-4 font-nuku py-12 md:py-28" style={{
-            'backgroundImage': "url('images/News/Group 51.png')"
+            'backgroundImage': `url('${process.env.PUBLIC_URL}/images/News/Group 51.png')`
         }}>
             <div className='md:w-1/3 md:ml-24 mx-4 md:mr-0'>
                 {(() => {
