@@ -16,8 +16,11 @@ const Jadwal = () => {
 
   useEffect(() => {
     const getPostsFromFirebase = [];
+    const date = new Date();
     const subscriber = db
       .collection("dataJadwal")
+      .orderBy("time","asc")
+      .where("time" ,">", date)
       .onSnapshot((querySnapshot) => {
         querySnapshot.forEach((doc) => {
           getPostsFromFirebase.push({
@@ -71,16 +74,16 @@ const Jadwal = () => {
                           </p>
                       </div>
                   </div>
-                  <p className="font-bold font-sansPro text-xl">{post.category}</p>
+                  <p className="font-bold font-sansPro text-lg">{post.category}</p>
                   <div className = {cont2}> 
                       <div className= {cont3 } >
-                          <p className="overflow-hidden text-lg"> {post.party1} </p>
+                          <p className="overflow-hidden text-md"> {post.party1} </p>
                       </div>
                       <div className ="vs text-3xl font-nuku ">
                           VS
                       </div>
                       <div className= {cont3} >
-                          <p className="overflow-hidden text-lg"> {post.party2} </p>
+                          <p className="overflow-hidden text-md"> {post.party2} </p>
                       </div>
                   </div>
               </div>
