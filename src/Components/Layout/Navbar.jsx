@@ -18,9 +18,20 @@ const Navbar = () => {
   }, [scroll.y, scroll.lastY]);
 
   return (
-    <nav className={navClassList.join(" ") + " navbar fixed z-100 w-full flex justify-between bg-red-700 font-sans text-white"}>
-      <div className="flex justify-center align-center content-center ml-2 md:ml-8">
-        <img src={`${process.env.PUBLIC_URL}/images/Title/logo porseni traced.svg`} alt="logo porseni gan" className="transform md:scale-110" />
+    <nav
+      className={
+        navClassList.join(" ") +
+        " navbar fixed z-100 w-full flex justify-between bg-red-700 font-sans text-white"
+      }
+    >
+      <div className="flex items-center ml-2 md:ml-8">
+        <a href={`${process.env.PUBLIC_URL}`}>
+          <img
+            src={`${process.env.PUBLIC_URL}/images/Title/logo porseni traced.svg`}
+            alt="Logo Porsenigama"
+            className="transform md:scale-110"
+          />
+        </a>
       </div>
       <div>
         <div className="flex justify-center gap-x-2 md:gap-x-12 py-3 text-sm md:text-base lg:text-lg mr-2 md:mr-8">
