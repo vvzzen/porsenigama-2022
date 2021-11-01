@@ -1,12 +1,11 @@
 import React from 'react'
-import Countdown from './Countdown'
 
 const Title = () => {
     return (
         <div className = 'z-30 h-full relative md:flex items-center md:items-stretch md:justify-start md:content-end' >
             <div className = 'h-2'></div>
             <div className = 'md:w-45c cursor-default'>
-                <div className = 'flex md:items-stretch justify-center md:ml-28 md:justify-start md:content-end text-5xl md:text-onetwenty md:mt-24 text-biru font-nuku' > 
+                <div className = 'flex md:items-stretch justify-center md:ml-28 md:justify-start md:content-end text-5xl md:text-fourteenvh md:mt-24 text-biru font-nuku'> 
                     <div style = {{
                         "textShadow": [
                             "-1px -1px 0 #F8BF0D",
@@ -42,10 +41,13 @@ const Title = () => {
                             "2.5px 4.5px 0 #F8BF0D",
                             "3px 5px 0 #F8BF0D",
                         ],
+                        'WebkitTextSizeAdjust':'none',
+                        'MsTextSizeAdjust':'none',
+                        'MozTextSizeAdjust':'none',
+                        'textSizeAdjust':'none',
                     }}>PORSENIGAMA</div>
                 </div>
-                <Countdown date="nov 7, 2021 18:29:59"/>
-                <p className = 'font-sansPro text-left md:ml-28 md:mr-8 md:mt-2 hidden md:flex md:text-lg'>Pekan Olahraga dan Seni Universitas Gadjah Mada (Porsenigama) merupakan suatu ajang kejuaraan olahraga dan seni yang dilaksanakan 
+                <p className = 'font-sansPro text-left md:ml-28 md:mr-8 md:mt-2 hidden md:flex md:text-threevh'>Pekan Olahraga dan Seni Universitas Gadjah Mada (Porsenigama) merupakan suatu ajang kejuaraan olahraga dan seni yang dilaksanakan 
                     atas dasar Rancangan Kegiatan Awal Tahun (RKAT) atau program kerja Forum Komunikasi (FORKOM) UKM Universitas Gadjah Mada. 
                     Porsenigama rutin dilaksanakan setiap tahunnya sebagai wadah penyaluran minat dan bakat mahasiswa Universitas Gadjah Mada (UGM) di 
                     bidang non-akademik, khususnya bidang olahraga dan seni. Porsenigama sendiri bertujuan untuk menumbuhkan kreativitas dan 
@@ -57,12 +59,12 @@ const Title = () => {
                 atas dasar RKAT FORKOM UKM Universitas Gadjah Mada.
             </div>
             <div className = 'h-full relative overflow-hidden hidden md:flex'>
-                <img src={`${process.env.PUBLIC_URL}/images/Title/Sun.svg`} alt="Sun behind Pagoda" className = 'z-30 absolute mt-20 ml-6 transform scale-95 overflow-hidden' style = {{
+                {/* <img src={`${process.env.PUBLIC_URL}/images/Title/Sun.svg`} alt="Sun behind Pagoda" className = 'z-30 absolute mt-20 ml-6 transform scale-95 overflow-hidden' style = {{
                     'MozUserSelect': 'none',
                     'WebkitUserSelect': 'none',
                     'userSelect':' none',
                     'pointerEvents': 'none'
-                }}/>
+                }}/> */}
                 <img src={`${process.env.PUBLIC_URL}/images/Title/Group 5.svg`} alt="Images of Pagoda" className = 'z-50 relative right-10 mt-6 transform scale-95' style = {{
                     'MozUserSelect': 'none',
                     'WebkitUserSelect': 'none',

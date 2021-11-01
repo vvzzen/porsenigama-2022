@@ -22,6 +22,24 @@ module.exports = {
         sansPro: ["Source Sans Pro", "sans-serif"],
       },
       fontSize: {
+        fourteenvh: [
+          "14vh",
+          {
+            lineHeight: "14vh",
+          },
+        ],
+        fivevh: [
+          "5vh",
+          {
+            lineHeight: "5vh",
+          },
+        ],
+        threevh: [
+          "3vh",
+          {
+            lineHeight: "3vh",
+          },
+        ],
         oneten: [
           "104px",
           {

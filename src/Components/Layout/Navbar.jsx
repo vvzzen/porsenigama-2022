@@ -30,9 +30,9 @@ const Navbar = () => {
           <div>
             <Link to="/2021/porsenigama/klasemen">Klasemen</Link>
           </div>
-          {/* <div>
-            <Link to="/2021/porsenigama/faq">Faq</Link>
-          </div> */}
+          <div>
+            <Link to="/2021/porsenigama/faq">FAQ</Link>
+          </div>
         </div>
       </div>
     </nav>
