@@ -1,4 +1,5 @@
 import {
+  PengumpulanKar,
   Section1,
   Section3,
   Section4,
@@ -19,6 +20,7 @@ const Home = () => {
       </div>
       <Section5 />
       <Section6 />
+      {/* <PengumpulanKar /> */}
       <SectionMedpartSponsor />
     </div>
   );
