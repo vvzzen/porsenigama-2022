@@ -45,7 +45,7 @@ export function Tes({cabor, party1 ,img1, party2,img2, jam, tanggal, tempat,cate
                 </div>
             </div>
         </div>
-        <div className="gradient border-white border -right-3 -bottom-8 rounded-full bg-opacity-100 w-24 h-20 absolute grid text-center text-sm content-center font-sansPro">
+        <div className="gradient border-white border -right-3 -bottom-8 rounded-full bg-opacity-100 w-48 h-20 absolute grid text-center text-lg content-center font-sansPro">
             <p className="text-merah"> {jam} </p>
             <p className="text-biru"> {tanggal} </p>
             <p className="text-merah"> {tempat} </p>

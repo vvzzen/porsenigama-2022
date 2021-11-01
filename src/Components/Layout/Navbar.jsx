@@ -25,16 +25,16 @@ const Navbar = () => {
       <div>
         <div className="flex justify-center gap-x-2 md:gap-x-12 py-3 text-sm md:text-base lg:text-lg mr-2 md:mr-8">
           <div>
-            <Link to={process.env.PUBLIC_URL}>Beranda</Link>
+            <Link to={`${process.env.PUBLIC_URL}`}>Beranda</Link>
           </div>
-          <div>
+          {/* <div>
             <Link to={`${process.env.PUBLIC_URL}/cabor`}>Cabor</Link>
+          </div> */}
+          <div>
+            <Link to={`${process.env.PUBLIC_URL}/klasemen`}>Klasemen</Link>
           </div>
           <div>
-            <Link to="/2021/porsenigama/klasemen">Klasemen</Link>
-          </div>
-          <div>
-            <Link to="/2021/porsenigama/faq">FAQ</Link>
+            <Link to={`${process.env.PUBLIC_URL}/faq`}>FAQ</Link>
           </div>
         </div>
       </div>
