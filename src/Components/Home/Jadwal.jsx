@@ -24,7 +24,7 @@ export function Tes({cabor, party1 ,img1, party2,img2, jam, tanggal, tempat,cate
                     </p>
                 </div>
             </div>
-            <p className="font-bold">{category}</p>
+            <p className="font-bold font-sansPro">{category}</p>
             <div className = {cont2}> 
                 <div className= {cont3 } >
                     <p className="overflow-hidden text-sm"> {party1} </p>
@@ -45,7 +45,7 @@ export function Tes({cabor, party1 ,img1, party2,img2, jam, tanggal, tempat,cate
                 </div>
             </div>
         </div>
-        <div className="gradient border-white border -right-3 -bottom-8 rounded-full bg-opacity-100 w-16 h-16 absolute grid text-center text-xxs content-center">
+        <div className="gradient border-white border -right-3 -bottom-8 rounded-full bg-opacity-100 w-24 h-20 absolute grid text-center text-sm content-center font-sansPro">
             <p className="text-merah"> {jam} </p>
             <p className="text-biru"> {tanggal} </p>
             <p className="text-merah"> {tempat} </p>
