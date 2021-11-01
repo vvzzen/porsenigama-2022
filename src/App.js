@@ -1,14 +1,16 @@
 import { Navbar, Footer } from "./Components/Layout";
 import { Home, Standings, News, Faq, Cabor } from "./Pages";
 import { Switch, Route } from "react-router-dom";
-import ScrollIntoView from './Components/Layout/hooks/ScrollIntoView'
+import ScrollIntoView from "./Components/Layout/hooks/ScrollIntoView";
+
+import { db } from "./data/db";
 
 function App() {
   return (
     <div>
       <Navbar />
-      <div className = 'h-10'></div>
-      <ScrollIntoView >
+      <div className="h-10"></div>
+      <ScrollIntoView>
         <Switch>
           <Route
             path={`${process.env.PUBLIC_URL}/`}

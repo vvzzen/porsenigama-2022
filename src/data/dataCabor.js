@@ -13,7 +13,7 @@ const caborList = [
 ];
 
 const casenList = [
-  "Membaca Puisi",
+  "Menulis Puisi",
   "Monolog",
   "Band",
   "Melukis",
