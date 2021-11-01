@@ -67,7 +67,11 @@ const Cabor = () => {
         </div>
         <div className="flex flex-wrap justify-center w-5/6 gap-y-10">
           {list.map((item) => (
-            <a className="w-1/3" key={item} href={item}>
+            <a
+              className="w-1/3"
+              key={item}
+              href={`${process.env.PUBLIC_URL}/cabor/${item}`}
+            >
               <div className="flex flex-col items-center">
                 <img
                   className="pointer-events-none"

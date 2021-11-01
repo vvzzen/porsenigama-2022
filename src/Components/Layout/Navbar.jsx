@@ -5,7 +5,12 @@ import useScrollListener from "./hooks/useScrollListener.jsx";
 
 const Navbar = () => {
   const [navClassList, setNavClassList] = useState([]);
+  const [navYellow, setNavYellow] = useState(false);
   const scroll = useScrollListener();
+
+  useEffect(() => {
+    setNavYellow(window.location.pathname.includes("/cabor/") ? true : false);
+  });
 
   // update classList of nav on scroll
   useEffect(() => {
@@ -21,7 +26,8 @@ const Navbar = () => {
     <nav
       className={
         navClassList.join(" ") +
-        " navbar fixed z-100 w-full flex justify-between bg-red-700 font-sans text-white"
+        " navbar fixed z-100 w-full flex justify-between font-sans text-white" +
+        (navYellow ? " bg-yellow-400" : " bg-red-700")
       }
     >
       <div className="flex items-center ml-2 md:ml-8">
@@ -36,16 +42,16 @@ const Navbar = () => {
       <div>
         <div className="flex justify-center gap-x-2 md:gap-x-12 py-3 text-sm md:text-base lg:text-lg mr-2 md:mr-8">
           <div>
-            <Link to={`${process.env.PUBLIC_URL}`}>Beranda</Link>
-          </div>
-          {/* <div>
-            <Link to={`${process.env.PUBLIC_URL}/cabor`}>Cabor</Link>
-          </div> */}
-          <div>
-            <Link to={`${process.env.PUBLIC_URL}/klasemen`}>Klasemen</Link>
+            <a href={`${process.env.PUBLIC_URL}`}>Beranda</a>
           </div>
           <div>
-            <Link to={`${process.env.PUBLIC_URL}/faq`}>FAQ</Link>
+            <a href={`${process.env.PUBLIC_URL}/cabor`}>Cabor</a>
+          </div>
+          <div>
+            <a href={`${process.env.PUBLIC_URL}/klasemen`}>Klasemen</a>
+          </div>
+          <div>
+            <a href={`${process.env.PUBLIC_URL}/faq`}>FAQ</a>
           </div>
         </div>
       </div>
