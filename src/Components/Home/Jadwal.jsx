@@ -6,8 +6,8 @@ import Carousel from 'react-elastic-carousel'
 
 const box = "gradient-box w-56 h-56 lg:w-52 bg-krem2 border border-oren2 rounded-3xl relative"
 const cont1 = "bg-gradient-to-r from-krem via-krem3 to-krem3  p-2 bg-krem3 rounded-3xl mx-6 my-4 border-white border"
-const cont2 = "mx-2 h-20 mb-12 grid grid-cols-3 justify-item-center text-center content-center"
-const cont3 = "grid grid-row-2 font-bold justify-item-center"
+const cont2 = "mx-2 h-20 mb-12 grid grid-cols-5 justify-item-center text-center content-center"
+const cont3 = "col-span-2 grid grid-row-2 font-bold justify-item-center"
 
 
 
@@ -71,6 +71,7 @@ const Jadwal = () => {
                           </p>
                       </div>
                   </div>
+                  <p className="font-bold font-sansPro text-xl">{post.category}</p>
                   <div className = {cont2}> 
                       <div className= {cont3 } >
                           <p className="overflow-hidden text-lg"> {post.party1} </p>
