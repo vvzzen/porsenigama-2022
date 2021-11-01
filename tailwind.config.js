@@ -15,12 +15,31 @@ module.exports = {
         oren: "#F16224",
         abu: "#5D568C",
         birdong : "#1E234C",
+        ungugaje: "#5D568B",
       },
       fontFamily: {
         nuku: ["Nuku Nuku", "sans-serif"],
         sansPro: ["Source Sans Pro", "sans-serif"],
       },
       fontSize: {
+        fourteenvh: [
+          "14vh",
+          {
+            lineHeight: "14vh",
+          },
+        ],
+        fivevh: [
+          "5vh",
+          {
+            lineHeight: "5vh",
+          },
+        ],
+        threevh: [
+          "3vh",
+          {
+            lineHeight: "3vh",
+          },
+        ],
         oneten: [
           "104px",
           {
@@ -98,6 +117,7 @@ module.exports = {
         porciPlayMd: "12.994350267%",
         porciTextXl: "34.180791%",
         porciPlayXl: "19.4915254%",
+        "30c": "30%",
       },
       boxShadow: {
         csel1: "20px 20px 16px -5px rgba(0, 0, 0, 0.3)",
@@ -112,6 +132,9 @@ module.exports = {
         35: ".35",
         40: ".4",
       },
+      borderWidth: {
+        '3': '3px',
+      }
     },
   },
   variants: {

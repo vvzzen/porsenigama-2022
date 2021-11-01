@@ -92,7 +92,7 @@ const Carousel1 = () => {
   const history = useHistory();
 
   const readMore = () => {
-    history.push("/berita", { newsNo : currentLink });
+    history.push(`${process.env.PUBLIC_URL}/berita`, { newsNo : currentLink });
   };
 
   return (

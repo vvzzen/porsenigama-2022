@@ -5,78 +5,49 @@ const Title = () => {
         <div className = 'z-30 h-full relative md:flex items-center md:items-stretch md:justify-start md:content-end' >
             <div className = 'h-2'></div>
             <div className = 'md:w-45c cursor-default'>
-                <div className = 'flex md:items-stretch ml-8 md:ml-28 md:justify-start md:content-end text-5xl md:text-onetwenty md:mt-32 text-biru font-nuku' style = {{ "-webkit-text-stroke": "1.5px #F8BF0D" }}> 
+                <div className = 'flex md:items-stretch justify-center md:ml-28 md:justify-start md:content-end text-5xl md:text-fourteenvh md:mt-24 text-biru font-nuku'> 
                     <div style = {{
-                            "text-shadow": [
-                            "6px 6px 0 #F8BF0D",
-                            "6px 2px 0 #F8BF0D",
-                            "3px 8px 0 #F8BF0D",
-                            "2px 8px 0 #F8BF0D",
+                        "textShadow": [
+                            "-1px -1px 0 #F8BF0D",
+                            "-0.5px -1px 0 #F8BF0D",
+                            "0px -1px 0 #F8BF0D",
+                            "0.5px -1px 0 #F8BF0D",
+                            "1px -1px 0 #F8BF0D",
+                            "1.5px -0.5px 0 #F8BF0D",
+                            "2px 0px 0 #F8BF0D",
+                            "2.5px 0.5px 0 #F8BF0D",
+                            "3px 1px 0 #F8BF0D",
+                            "3.5px 1.5px 0 #F8BF0D",
+                            "4px 2px 0 #F8BF0D",
+                            "4.5px 3.5px 0 #F8BF0D",
+                            "5px 3px 0 #F8BF0D",
+                            "-1px 0px 0 #F8BF0D",
+                            "-1px 1px 0 #F8BF0D",
+                            "-0.5px 1.5px 0 #F8BF0D",
+                            "0px 2px 0 #F8BF0D",
+                            "0.5px 2.5px 0 #F8BF0D",
+                            "1px 1px 0 #F8BF0D",
+                            "1.5px 1.5px 0 #F8BF0D",
+                            "2px 2px 0 #F8BF0D",
+                            "2.5px 2.5px 0 #F8BF0D",
+                            "3px 3px 0 #F8BF0D",
+                            "3.5px 3.5px 0 #F8BF0D",
+                            "4px 4px 0 #F8BF0D",
+                            "4.5px 4.5px 0 #F8BF0D",
+                            "5px 5px 0 #F8BF0D",
+                            "1px 3px 0 #F8BF0D",
+                            "1.5px 3.5px 0 #F8BF0D",
+                            "2px 4px 0 #F8BF0D",
+                            "2.5px 4.5px 0 #F8BF0D",
+                            "3px 5px 0 #F8BF0D",
                         ],
-                    }}>PO</div><div style = {{
-                            "text-shadow": [
-                            "6px 6px 0 #F8BF0D",
-                            "6px 2px 0 #F8BF0D",
-                            "6px 3px 0 #F8BF0D",
-                            "6px 4px 0 #F8BF0D",
-                            "6px 5px 0 #F8BF0D",
-                            "0px 6px 0 #F8BF0D",
-                            "-1px 6px 0 #F8BF0D",
-                        ],
-                    }}>R</div><div style = {{
-                            "text-shadow": [
-                            "6px 6px 0 #F8BF0D",
-                            "6px 2px 0 #F8BF0D",
-                            "4px 6px 0 #F8BF0D",
-                            "2px 6px 0 #F8BF0D",
-                        ],
-                    }}>S</div><div style = {{
-                            "text-shadow": [
-                            "6px 6px 0 #F8BF0D",
-                            "6px 2px 0 #F8BF0D",
-                            "4px 6px 0 #F8BF0D",
-                            "2px 6px 0 #F8BF0D",
-                        ],
-                    }}>E</div><div style = {{
-                            "text-shadow": [
-                            "6px 6px 0 #F8BF0D",
-                            "6px 2px 0 #F8BF0D",
-                            "6px 3px 0 #F8BF0D",
-                            "6px 4px 0 #F8BF0D",
-                            "6px 5px 0 #F8BF0D",
-                            "-1px 6px 0 #F8BF0D",
-                            "0px 6px 0 #F8BF0D",
-                            "1px 6px 0 #F8BF0D",
-                            "2px 6px 0 #F8BF0D",
-                            "3px 6px 0 #F8BF0D",
-                            "4px 6px 0 #F8BF0D",
-                            "5px 6px 0 #F8BF0D",
-                        ],
-                    }}>NI</div><div style = {{
-                        "text-shadow": [
-                            "6px 6px 0 #F8BF0D",
-                            "6px 2px 0 #F8BF0D",
-                            "4px 6px 0 #F8BF0D",
-                            "2px 6px 0 #F8BF0D",
-                        ],
-                    }}>G</div><div style = {{
-                        "text-shadow": [
-                            "6px 6px 0 #F8BF0D",
-                            "6px 2px 0 #F8BF0D",
-                            "6px 3px 0 #F8BF0D",
-                            "6px 4px 0 #F8BF0D",
-                            "6px 5px 0 #F8BF0D",
-                            "-1px 6px 0 #F8BF0D",
-                            "0px 6px 0 #F8BF0D",
-                            "1px 6px 0 #F8BF0D",
-                            "2px 6px 0 #F8BF0D",
-                            "3px 6px 0 #F8BF0D",
-                            "4px 6px 0 #F8BF0D",
-                            "5px 6px 0 #F8BF0D",
-                        ],
-                    }}>AMA</div>
+                        'WebkitTextSizeAdjust':'none',
+                        'MsTextSizeAdjust':'none',
+                        'MozTextSizeAdjust':'none',
+                        'textSizeAdjust':'none',
+                    }}>PORSENIGAMA</div>
                 </div>
-                <p className = 'font-sansPro text-left md:ml-28 md:mr-8 md:mt-8 hidden md:flex md:text-lg'>Pekan Olahraga dan Seni Universitas Gadjah Mada (Porsenigama) merupakan suatu ajang kejuaraan olahraga dan seni yang dilaksanakan 
+                <p className = 'font-sansPro text-left md:ml-28 md:mr-8 md:mt-2 hidden md:flex md:text-threevh'>Pekan Olahraga dan Seni Universitas Gadjah Mada (Porsenigama) merupakan suatu ajang kejuaraan olahraga dan seni yang dilaksanakan 
                     atas dasar Rancangan Kegiatan Awal Tahun (RKAT) atau program kerja Forum Komunikasi (FORKOM) UKM Universitas Gadjah Mada. 
                     Porsenigama rutin dilaksanakan setiap tahunnya sebagai wadah penyaluran minat dan bakat mahasiswa Universitas Gadjah Mada (UGM) di 
                     bidang non-akademik, khususnya bidang olahraga dan seni. Porsenigama sendiri bertujuan untuk menumbuhkan kreativitas dan 
@@ -88,24 +59,24 @@ const Title = () => {
                 atas dasar RKAT FORKOM UKM Universitas Gadjah Mada.
             </div>
             <div className = 'h-full relative overflow-hidden hidden md:flex'>
-                <img src={`${process.env.PUBLIC_URL}/images/Title/Sun.svg`} alt="Sun behind Pagoda" className = 'z-30 absolute mt-20 ml-6 transform scale-95 overflow-hidden' style = {{
-                    '-moz-user-select': 'none',
-                    '-webkit-user-select': 'none',
-                    'user-select':' none',
-                    'pointer-events': 'none'
-                }}/>
+                {/* <img src={`${process.env.PUBLIC_URL}/images/Title/Sun.svg`} alt="Sun behind Pagoda" className = 'z-30 absolute mt-20 ml-6 transform scale-95 overflow-hidden' style = {{
+                    'MozUserSelect': 'none',
+                    'WebkitUserSelect': 'none',
+                    'userSelect':' none',
+                    'pointerEvents': 'none'
+                }}/> */}
                 <img src={`${process.env.PUBLIC_URL}/images/Title/Group 5.svg`} alt="Images of Pagoda" className = 'z-50 relative right-10 mt-6 transform scale-95' style = {{
-                    '-moz-user-select': 'none',
-                    '-webkit-user-select': 'none',
-                    'user-select':' none',
-                    'pointer-events': 'none'
+                    'MozUserSelect': 'none',
+                    'WebkitUserSelect': 'none',
+                    'userSelect':' none',
+                    'pointerEvents': 'none'
                 }}/>
             </div>
             <img src={`${process.env.PUBLIC_URL}/images/Title/Group 45.png`} alt="Mountain" className = 'z-40 absolute mt-2 md:mt-12' style = {{
-                '-moz-user-select': 'none',
-                '-webkit-user-select': 'none',
-                'user-select':' none',
-                'pointer-events': 'none'
+                'MozUserSelect': 'none',
+                'WebkitUserSelect': 'none',
+                'userSelect':' none',
+                'pointerEvents': 'none'
             }}/>
             <div className = 'h-24'></div>
         </div>
