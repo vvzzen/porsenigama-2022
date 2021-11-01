@@ -1,9 +1,7 @@
 import { Navbar, Footer } from "./Components/Layout";
-import { Home, Standings, News, Faq, Cabor } from "./Pages";
+import { Home, Standings, News, Faq, Cabor, CaborDetail } from "./Pages";
 import { Switch, Route } from "react-router-dom";
 import ScrollIntoView from "./Components/Layout/hooks/ScrollIntoView";
-
-import { db } from "./data/db";
 
 function App() {
   return (
@@ -26,6 +24,10 @@ function App() {
             path={`${process.env.PUBLIC_URL}/cabor`}
             exact
             component={Cabor}
+          />
+          <Route
+            path={`${process.env.PUBLIC_URL}/cabor/:id`}
+            render={(props) => <CaborDetail {...props} />}
           />
           <Route
             path={`${process.env.PUBLIC_URL}/berita`}
