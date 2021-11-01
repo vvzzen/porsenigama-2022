@@ -4,7 +4,7 @@ import { dataSponsor, dataMedpart } from '../../data/dataMedPartSponsor';
 
 const SectionMedpartSponsor = () => {
     return(
-        <div className="relative">
+        <div className="relative md:mt-4">
             {/* <div className="bg-kuning bg-opacity-0">
 
         

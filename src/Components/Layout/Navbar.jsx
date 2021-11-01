@@ -10,7 +10,7 @@ const Navbar = () => {
 
   useEffect(() => {
     setNavYellow(window.location.pathname.includes("/cabor/") ? true : false);
-  });
+  }, []);
 
   // update classList of nav on scroll
   useEffect(() => {

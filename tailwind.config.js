@@ -119,6 +119,17 @@ module.exports = {
         porciPlayXl: "19.4915254%",
         "30c": "30%",
       },
+      height: {
+        "vh" : "100vh",
+        "15vh" : "15vh",
+      },
+      spacing: {
+       '1/3x': '33.3vw',
+       '1/5x': '20vw',
+       '1/4x': '25vw',
+       '1/2x': '50vw',
+       '15x': '15vw',
+      },
       boxShadow: {
         csel1: "20px 20px 16px -5px rgba(0, 0, 0, 0.3)",
       },
