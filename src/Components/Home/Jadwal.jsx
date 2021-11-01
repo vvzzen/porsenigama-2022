@@ -1,123 +1,106 @@
-import './Jadwal.css'
-import { dataJadwal } from '../../data/dataJadwalTanding';
+import React, { useEffect, useState } from "react";
+import { db } from "../../data/db";
+import "./Jadwal.css";
 import Carousel from 'react-elastic-carousel'
-import React from 'react';
 
 
-const box = "gradient-box w-56 h-64 lg:w-64 bg-krem2 border border-oren2 rounded-3xl relative shadow-lg"
-const title = "bg-gradient-to-r from-krem via-krem3 to-krem3  p-2 bg-krem3 rounded-3xl mx-6 my-4 border-white border"
+const box = "gradient-box w-56 h-56 lg:w-52 bg-krem2 border border-oren2 rounded-3xl relative"
+const cont1 = "bg-gradient-to-r from-krem via-krem3 to-krem3  p-2 bg-krem3 rounded-3xl mx-6 my-4 border-white border"
 const cont2 = "mx-2 h-20 mb-12 grid grid-cols-5 justify-item-center text-center content-center"
-const cont3 = "grid grid-row-2 col-span-2 font-bold justify-item-center "
-const events = "text-sm lg:text-2xl font-nuku w-full text-center"
-// const photo = "text-center w-11/12 relative border-50% rounded-full"
-// const frame = "w-full absolute top-0 right-0 rounded-lg"
+const cont3 = "col-span-2 grid grid-row-2 font-bold justify-item-center"
 
 
-export function Tes({cabor, party1 ,img1, party2,img2, jam, tanggal, tempat,category}){
-    return(
-        <div className="relative mb-8">
-        <div className = {box}>
-            <div className = {title}>
-                <div>
-                    <p className= {events +" cabor"}>
-                        {cabor}
-                    </p>
-                </div>
-            </div>
-            <p className="font-bold font-sansPro text-xl">{category}</p>
-            <div className = {cont2}> 
-                <div className= {cont3 } >
-                    <p className="overflow-hidden text-lg"> {party1} </p>
-                    {/* <div className="relative grid justify-item-center mt-2" >
-                        <img alt="" className= {photo} src={`${process.env.PUBLIC_URL}/images/Sec6/${img1} `}></img>
-                        <img alt="" className= {frame} src={`${process.env.PUBLIC_URL}/images/Sec6/left-frame.png `}></img>
-                    </div> */}
-                </div>
-                <div className ="vs text-3xl font-nuku ">
-                    VS
-                </div>
-                <div className= {cont3} >
-                    <p className="overflow-hidden text-lg"> {party2} </p>
-                    {/* <div className="relative grid justify-item-center mt-2" >
-                        <img alt="" className= {photo} src={`${process.env.PUBLIC_URL}/images/Sec6/${img2} `}></img>
-                        <img alt="" className= {frame} src={`${process.env.PUBLIC_URL}/images/Sec6/right-frame.png `}></img>
-                    </div> */}
-                </div>
-            </div>
-        </div>
-        <div className='flex justify-center'>
-            <div className="gradient border-white border -bottom-8 rounded-full bg-opacity-100 w-48 h-20 absolute grid text-center text-lg content-center font-sansPro">
-                <p className="text-merah"> {jam} </p>
-                <p className="text-biru"> {tanggal} </p>
-                <p className="text-merah"> {tempat} </p>
-            </div>
-        </div>
-        </div>
-        
-    )
-}
 
-const button =  "relative item-center w-12 bg-biru h-12 translate-x-1/2 rounded-full"
+const Jadwal = () => {
+  const [posts, setPosts] = useState([]);
 
-class Jadwal extends React.Component {
-    constructor(props) {
-        super(props)
-        this.breakPoints = [
+  useEffect(() => {
+    const getPostsFromFirebase = [];
+    const subscriber = db
+      .collection("dataJadwal")
+      .onSnapshot((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+          getPostsFromFirebase.push({
+            ...doc.data(), //spread operator
+            key: doc.id, // `id` given to us by Firebase
+          });
+        });
+        setPosts(getPostsFromFirebase);
+      });
+
+    // return cleanup function
+    return () => subscriber();
+  }, []); // empty dependencies array => useEffect only called once
+
+  return (
+    <div className="grid-cols-9 grid">
+      <button 
+          className ={"relative item-center w-12 bg-biru h-12 translate-x-1/2 rounded-full button"}
+          onClick={() => posts.carousel.slidePrev()}>
+          <img 
+              src={`${process.env.PUBLIC_URL}/images/Sec6/left-arrow.png`} 
+              style={{ 
+                  position:"absolute",
+                  top:"50%",
+                  left:"50%",
+                  transform: "translate(-50%,-50%)",
+                  height:"2rem"}}
+              alt="" />
+      </button>
+
+      {posts.breakPoints = [
           { width: 1, itemsToShow: 1 },
           { width: 550, itemsToShow: 2 },
           { width: 800, itemsToShow: 3 },
           { width: 850, itemsToShow: 4 },
-          { width: 1450, itemsToShow: 5 },
-        ]
-    }
-    render(){
-    return(
-        <div className="lg:mx-20">
-            {/* <div className="hidden xl:grid grid-cols-5 justify-items-center">
-                {dataJadwal.map((card, index) =>
-                <Tes
-                    cabor= {card.cabor}
-                    party1= {card.party1}
-                    img1= {card.img1}
-                    party2 = {card.party2}
-                    img2 = {card.img2}
-                    jam = { card.jam}
-                    tanggal = {card.tanggal}
-                    tempat = {card.tempat}
-                />
-            )}
-            </div> */}
-            <div className="relative grid grid-cols-9 justify-item-center">
-                <button 
-                    className ={button + " button"}
-                    onClick={() => this.carousel.slidePrev()}>
-                    <img 
-                        src={`${process.env.PUBLIC_URL}/images/Sec6/left-arrow.png`} 
-                        style={{ 
-                            position:"absolute",
-                            top:"50%",
-                            left:"50%",
-                            transform: "translate(-50%,-50%)",
-                            height:"2rem"}}
-                        alt="" />
-                </button>
-                <Carousel className="col-span-7"breakPoints={this.breakPoints} ref={ref => (this.carousel = ref)}>
-                    {dataJadwal.map((card, index) =>
-                    <Tes
-                        cabor= {card.cabor}
-                        party1= {card.party1}
-                        img1= {card.img1}
-                        party2 = {card.party2}
-                        img2 = {card.img2}
-                        jam = {card.jam}
-                        tanggal = {card.tanggal}
-                        tempat = {card.tempat}
-                        category = {card.category}
-                        />
-                    )}
-                </Carousel>
-                <button className={button + " button"}  
-                        onClick={() => this.carousel.slideNext() 
+          { width: 1450, itemsToShow: 3 },  
+        ],
+      
+
+      posts.length > 0 ? (
+
+        <Carousel className="col-span-7" breakPoints={posts.breakPoints} ref={ref => (posts.carousel = ref)} >
+        {posts.map((post) =>         
+          <div className="relative" key={post.key}>
+            <div className="relative mb-8">
+              <div className = {box}>
+                  <div className = {cont1}>
+                      <div>
+                          <p className= "overflow-hidden text-sm lg:text-2xl font-nuku w-full text-center cabor">
+                              {post.cabor}
+                          </p>
+                      </div>
+                  </div>
+                  <p className="font-bold font-sansPro text-xl">{post.category}</p>
+                  <div className = {cont2}> 
+                      <div className= {cont3 } >
+                          <p className="overflow-hidden text-lg"> {post.party1} </p>
+                      </div>
+                      <div className ="vs text-3xl font-nuku ">
+                          VS
+                      </div>
+                      <div className= {cont3} >
+                          <p className="overflow-hidden text-lg"> {post.party2} </p>
+                      </div>
+                  </div>
+              </div>
+              <div className='flex justify-center'>
+                  <div className="gradient border-white border -bottom-8 rounded-full bg-opacity-100 w-48 h-20 absolute grid text-center text-lg content-center font-sansPro">
+                      <p className="text-merah"> {post.jam} </p>
+                      <p className="text-biru"> {post.tanggal} </p>
+                      <p className="text-merah"> {post.tempat} </p>
+                  </div>
+              </div>
+              </div>
+          </div>)
+        } 
+        </Carousel>
+        
+      ) : (
+        ""
+      )}
+      <button className={ "relative item-center w-12 bg-biru h-12 translate-x-1/2 rounded-full button"}  
+                        onClick={() => posts.carousel.slideNext() 
                         }> 
                         <img 
                             src={`${process.env.PUBLIC_URL}/images/Sec6/right-arrow.png`} 
@@ -129,10 +112,8 @@ class Jadwal extends React.Component {
                                 height:"2rem"}}
                             alt="" />
                 </button>
-            </div>
-        </div>
-    )
-    }
-}
+    </div>
+  );
+};
 
 export default Jadwal;
