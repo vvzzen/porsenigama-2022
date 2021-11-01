@@ -5,42 +5,43 @@ import React from 'react';
 
 
 const box = "gradient-box w-56 h-56 lg:w-52 bg-krem2 border border-oren2 rounded-3xl relative"
-const cont1 = "bg-gradient-to-r from-krem via-krem3 to-krem3  p-2 bg-krem3 rounded-3xl mx-6 my-4 border-white border"
-const cont2 = "mx-2 h-20 mb-12 grid grid-cols-3 justify-item-center text-center content-center"
-const cont3 = "grid grid-row-2 font-bold justify-item-center"
+const title = "bg-gradient-to-r from-krem via-krem3 to-krem3  p-2 bg-krem3 rounded-3xl mx-6 my-4 border-white border"
+const cont2 = "mx-2 h-20 mb-12 grid grid-cols-5 justify-item-center text-center content-center"
+const cont3 = "grid grid-row-2 col-span-2 font-bold justify-item-center "
 const events = "text-sm lg:text-2xl font-nuku w-full text-center"
-const photo = "text-center w-11/12 relative border-50% rounded-full"
-const frame = "w-full absolute top-0 right-0 rounded-lg"
+// const photo = "text-center w-11/12 relative border-50% rounded-full"
+// const frame = "w-full absolute top-0 right-0 rounded-lg"
 
 
-export function Tes({cabor, party1 ,img1, party2,img2, jam, tanggal, tempat}){
+export function Tes({cabor, party1 ,img1, party2,img2, jam, tanggal, tempat,category}){
     return(
         <div className="relative mb-8">
         <div className = {box}>
-            <div className = {cont1}>
+            <div className = {title}>
                 <div>
                     <p className= {events +" cabor"}>
                         {cabor}
                     </p>
                 </div>
             </div>
+            <p className="font-bold">{category}</p>
             <div className = {cont2}> 
                 <div className= {cont3 } >
-                    <p> {party1} </p>
-                    <div className="relative grid justify-item-center mt-2" >
+                    <p className="overflow-hidden text-sm"> {party1} </p>
+                    {/* <div className="relative grid justify-item-center mt-2" >
                         <img alt="" className= {photo} src={`${process.env.PUBLIC_URL}/images/Sec6/${img1} `}></img>
                         <img alt="" className= {frame} src={`${process.env.PUBLIC_URL}/images/Sec6/left-frame.png `}></img>
-                    </div>
+                    </div> */}
                 </div>
                 <div className ="vs text-3xl font-nuku ">
                     VS
                 </div>
                 <div className= {cont3} >
-                    <p> {party2} </p>
-                    <div className="relative grid justify-item-center mt-2" >
+                    <p className="overflow-hidden text-sm"> {party2} </p>
+                    {/* <div className="relative grid justify-item-center mt-2" >
                         <img alt="" className= {photo} src={`${process.env.PUBLIC_URL}/images/Sec6/${img2} `}></img>
                         <img alt="" className= {frame} src={`${process.env.PUBLIC_URL}/images/Sec6/right-frame.png `}></img>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </div>
@@ -70,7 +71,7 @@ class Jadwal extends React.Component {
     render(){
     return(
         <div className="lg:mx-20">
-            <div className="hidden xl:grid grid-cols-5 justify-items-center">
+            {/* <div className="hidden xl:grid grid-cols-5 justify-items-center">
                 {dataJadwal.map((card, index) =>
                 <Tes
                     cabor= {card.cabor}
@@ -83,8 +84,8 @@ class Jadwal extends React.Component {
                     tempat = {card.tempat}
                 />
             )}
-            </div>
-            <div className="relative xl:hidden grid grid-cols-9 justify-item-center">
+            </div> */}
+            <div className="relative grid grid-cols-9 justify-item-center">
                 <button 
                     className ={button + " button"}
                     onClick={() => this.carousel.slidePrev()}>
@@ -109,6 +110,7 @@ class Jadwal extends React.Component {
                         jam = {card.jam}
                         tanggal = {card.tanggal}
                         tempat = {card.tempat}
+                        category = {card.category}
                         />
                     )}
                 </Carousel>
