@@ -4,7 +4,7 @@ import Carousel from 'react-elastic-carousel'
 import React from 'react';
 
 
-const box = "gradient-box w-56 h-64 lg:w-64 bg-krem2 border border-oren2 rounded-3xl relative"
+const box = "gradient-box w-56 h-64 lg:w-64 bg-krem2 border border-oren2 rounded-3xl relative shadow-lg"
 const title = "bg-gradient-to-r from-krem via-krem3 to-krem3  p-2 bg-krem3 rounded-3xl mx-6 my-4 border-white border"
 const cont2 = "mx-2 h-20 mb-12 grid grid-cols-5 justify-item-center text-center content-center"
 const cont3 = "grid grid-row-2 col-span-2 font-bold justify-item-center "

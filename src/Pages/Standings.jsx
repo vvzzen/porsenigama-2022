@@ -42,7 +42,7 @@ const Standings = () => {
   return (
     <div className="min-h-screen font-nuku tracking-wide bg-krem relative overflow-hidden">
       <img
-        src={`${process.env.PUBLIC_URL}/images/Standings/bg.svg`}
+        src={`${process.env.PUBLIC_URL}/images/Standings/Bg.png`}
         alt=""
         className="absolute"
       />
