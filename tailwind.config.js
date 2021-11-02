@@ -1,4 +1,3 @@
-
 const Host = require("./config/Host");
 
 module.exports = {
@@ -14,8 +13,9 @@ module.exports = {
         kuning: "#F8BF0D",
         oren: "#F16224",
         abu: "#5D568C",
-        birdong : "#1E234C",
+        birdong: "#1E234C",
         ungugaje: "#5D568B",
+        putih: "#FAE4D1",
       },
       fontFamily: {
         nuku: ["Nuku Nuku", "sans-serif"],
@@ -120,15 +120,15 @@ module.exports = {
         "30c": "30%",
       },
       height: {
-        "vh" : "100vh",
-        "15vh" : "15vh",
+        vh: "100vh",
+        "15vh": "15vh",
       },
       spacing: {
-       '1/3x': '33.3vw',
-       '1/5x': '20vw',
-       '1/4x': '25vw',
-       '1/2x': '50vw',
-       '15x': '15vw',
+        "1/3x": "33.3vw",
+        "1/5x": "20vw",
+        "1/4x": "25vw",
+        "1/2x": "50vw",
+        "15x": "15vw",
       },
       boxShadow: {
         csel1: "20px 20px 16px -5px rgba(0, 0, 0, 0.3)",
@@ -144,8 +144,8 @@ module.exports = {
         40: ".4",
       },
       borderWidth: {
-        '3': '3px',
-      }
+        3: "3px",
+      },
     },
   },
   variants: {

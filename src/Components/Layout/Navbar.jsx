@@ -27,7 +27,7 @@ const Navbar = () => {
       className={
         navClassList.join(" ") +
         " navbar fixed z-100 w-full flex justify-between font-sans text-white" +
-        (navYellow ? " bg-yellow-400" : " bg-red-700")
+        (navYellow ? " bg-kuning" : " bg-merah")
       }
     >
       <div className="flex items-center ml-2 md:ml-8">
