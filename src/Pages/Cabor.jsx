@@ -20,17 +20,13 @@ const Cabor = () => {
         />
         {width > 1020 ? (
           <button
-            className={`absolute left-1/2 bottom-24`}
-            style={{ width: "5%" }}
+            className={`absolute left-1/2 bottom-24 ${styles.arrowBounce}`}
+            style={{ maxWidth: "5%" }}
             onClick={() =>
               content.current.scrollIntoView({ behavior: "smooth" })
             }
           >
-            <img
-              className={styles.arrowBounce}
-              src={`${assetsCabor}/arrow-bottom.png`}
-              alt=""
-            />
+            <img src={`${assetsCabor}/arrow-bottom.png`} alt="" />
           </button>
         ) : (
           <></>

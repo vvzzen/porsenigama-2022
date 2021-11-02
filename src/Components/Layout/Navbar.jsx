@@ -31,7 +31,7 @@ const Navbar = () => {
       }
     >
       <div className="flex items-center ml-2 md:ml-8">
-        <a href={`${process.env.PUBLIC_URL}`}>
+        <a href={`${process.env.PUBLIC_URL}/`}>
           <img
             src={`${process.env.PUBLIC_URL}/images/Title/logo porseni traced.svg`}
             alt="Logo Porsenigama"
@@ -42,7 +42,7 @@ const Navbar = () => {
       <div>
         <div className="flex justify-center gap-x-2 md:gap-x-12 py-3 text-sm md:text-base lg:text-lg mr-2 md:mr-8">
           <div>
-            <a href={`${process.env.PUBLIC_URL}`}>Beranda</a>
+            <a href={`${process.env.PUBLIC_URL}/`}>Beranda</a>
           </div>
           <div>
             <a href={`${process.env.PUBLIC_URL}/cabor`}>Cabor</a>
