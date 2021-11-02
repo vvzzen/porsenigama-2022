@@ -20,7 +20,7 @@ const Jadwal = () => {
     const subscriber = db
       .collection("dataJadwal")
       .orderBy("time","asc")
-      .where("time" ,">", date)
+      // .where("time" ,">", date)
       .onSnapshot((querySnapshot) => {
         querySnapshot.forEach((doc) => {
           getPostsFromFirebase.push({
