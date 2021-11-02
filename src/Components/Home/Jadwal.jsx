@@ -4,9 +4,9 @@ import "./Jadwal.css";
 import Carousel from 'react-elastic-carousel'
 
 
-const box = "gradient-box w-56 h-56 lg:w-52 bg-krem2 border border-oren2 rounded-3xl relative"
+const box = "gradient-box h-64 w-72 lg:h-72 lg:w-96 bg-krem2 border border-oren2 rounded-3xl relative"
 const cont1 = "bg-gradient-to-r from-krem via-krem3 to-krem3  p-2 bg-krem3 rounded-3xl mx-6 my-4 border-white border"
-const cont2 = "mx-2 h-20 mb-12 grid grid-cols-5 justify-item-center text-center content-center"
+const cont2 = "mt-2 h-20 mb-12 grid grid-cols-5 justify-item-center text-center content-center"
 const cont3 = "col-span-2 grid grid-row-2 font-bold justify-item-center"
 
 
@@ -16,7 +16,7 @@ const Jadwal = () => {
 
   useEffect(() => {
     const getPostsFromFirebase = [];
-    const date = new Date();
+    // const date = new Date();
     const subscriber = db
       .collection("dataJadwal")
       .orderBy("time","asc")
@@ -53,10 +53,10 @@ const Jadwal = () => {
 
       {posts.breakPoints = [
           { width: 1, itemsToShow: 1 },
-          { width: 550, itemsToShow: 2 },
-          { width: 800, itemsToShow: 3 },
-          { width: 850, itemsToShow: 4 },
-          { width: 1450, itemsToShow: 3 },  
+          { width: 550, itemsToShow: 1 },
+          { width: 800, itemsToShow: 1 },
+          { width: 850, itemsToShow: 2 },
+          { width: 1450, itemsToShow: 2 },  
         ],
       
 
@@ -74,13 +74,13 @@ const Jadwal = () => {
                           </p>
                       </div>
                   </div>
-                  <p className="font-bold font-sansPro text-lg">{post.category}</p>
+                  <p className="font-bold font-sansPro text-lg mb-4">{post.category}</p>
                   <div className = {cont2}> 
                       <div className= {cont3 } >
                           <p className="overflow-hidden text-md"> {post.party1} </p>
                       </div>
-                      <div className ="vs text-3xl font-nuku ">
-                          VS
+                      <div className ="h-full grid content-evenly text-3xl font-nuku">
+                          <div className="vs"> VS </div>
                       </div>
                       <div className= {cont3} >
                           <p className="overflow-hidden text-md"> {post.party2} </p>
