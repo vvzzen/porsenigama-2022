@@ -69,16 +69,18 @@ const Cabor = () => {
           {list.map((item) => (
             <a
               className="w-1/3"
-              key={item}
-              href={`${process.env.PUBLIC_URL}/cabor/${item}`}
+              key={item.title}
+              href={`${process.env.PUBLIC_URL}/cabor/${item.title}`}
             >
               <div className="flex flex-col items-center">
                 <img
                   className="pointer-events-none"
-                  src={`${assetsCabor}/gambar-${item}.png`}
+                  src={`${assetsCabor}/gambar-${item.title}.png`}
                   alt=""
                 />
-                <p className="font-sansPro md:text-xl text-center">{item}</p>
+                <p className="font-sansPro md:text-xl text-center">
+                  {item.title}
+                </p>
               </div>
             </a>
           ))}
