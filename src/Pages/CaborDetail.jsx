@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { db } from "../data/db";
 import { caborList, casenList } from "../data/dataCabor";
 
 const Card = (props) => {
@@ -18,15 +19,21 @@ const Card = (props) => {
         <div className="flex items-center px-8 py-12">
           <div
             className="rounded-full bg-white"
-            style={{ width: "6%", height: "80%" }}
+            style={{ width: "5%", height: "80%" }}
           >
             {/* Logo Supporter */}
           </div>
-          <div className="ml-8 space-y-3" style={{ width: "60%" }}>
+          <div className="ml-8 space-y-3" style={{ width: "55%" }}>
             <p className="text-5xl uppercase">{props.data.title}</p>
             <p className="opacity-50 text-2xl uppercase">{props.data.phase}</p>
           </div>
-          <div className="ml-8 space-y-3 text-2xl" style={{ width: "34%" }}>
+          <div
+            className="rounded-full bg-white"
+            style={{ width: "5%", height: "80%" }}
+          >
+            {/* Logo Supporter */}
+          </div>
+          <div className="ml-8 space-y-3 text-2xl" style={{ width: "35%" }}>
             <p className="uppercase">{props.data.venue}</p>
             {props.data.isFinished && <p>Pemenang: {props.data.winner}</p>}
           </div>
@@ -38,6 +45,16 @@ const Card = (props) => {
 
 const CaborDetail = (props) => {
   const id = props.match.params.id;
+
+  const getData = async () => {
+    const lalala = await (
+      await db.collection("dataCabor").doc(id).collection("schedule").get()
+    ).docs;
+
+    console.log(lalala);
+  };
+  getData();
+
   const data = [...caborList, ...casenList];
   const item = data.filter((i) => i.title === id)[0];
   const [showCategory, setShowCategory] = useState(false);
@@ -91,7 +108,9 @@ const CaborDetail = (props) => {
       <div className="flex flex-col justify-center px-20 pt-8">
         <div
           className={`z-10 relative w-1/5 bg-white ${
-            showCategory ? "rounded-t-3xl" : "bg-opacity-80 backdrop-filter backdrop-blur-lg rounded-3xl"
+            showCategory
+              ? "rounded-t-3xl"
+              : "bg-opacity-80 backdrop-filter backdrop-blur-lg rounded-3xl"
           } py-3 text-2xl`}
         >
           <div
@@ -101,7 +120,9 @@ const CaborDetail = (props) => {
             <p className="px-6 py-3 opacity-50">{selectedCategory}</p>
             <div className="flex justify-center px-4 border-l border-black border-opacity-60">
               <img
-                className={`py-3 ${showCategory ? "transition transform rotate-180" : ""}`}
+                className={`py-3 ${
+                  showCategory ? "transition transform rotate-180" : ""
+                }`}
                 style={{ width: "60%" }}
                 src={`${assetsCaborDetail}/dropdown.svg`}
                 alt=""
