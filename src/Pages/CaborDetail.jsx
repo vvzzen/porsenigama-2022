@@ -1,8 +1,26 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { db } from "../data/db";
-import { caborList, casenList } from "../data/dataCabor";
+const assetsCaborDetail = `${process.env.PUBLIC_URL}/images/CaborDetail`;
 
 const Card = (props) => {
+  const LogoSupporter = (props) => {
+    return (
+      <div
+        className={`w-28 h-28 rounded-full ${
+          props.logo ? "bg-white" : "bg-black"
+        }`}
+      >
+        {props.logo && (
+          <img
+            className="w-full h-full rounded-full"
+            src={`${assetsCaborDetail}/supporter/${props.logo}.png`}
+            alt=""
+          />
+        )}
+      </div>
+    );
+  };
+
   return (
     <div className="my-20">
       <div className="bg-white bg-opacity-80 backdrop-filter backdrop-blur-lg rounded-t-3xl">
@@ -17,23 +35,16 @@ const Card = (props) => {
       </div>
       <div className="mt-1 bg-white bg-opacity-80 backdrop-filter backdrop-blur-lg rounded-b-3xl">
         <div className="flex items-center px-8 py-12">
-          <div
-            className="rounded-full bg-white"
-            style={{ width: "5%", height: "80%" }}
-          >
-            {/* Logo Supporter */}
-          </div>
-          <div className="ml-8 space-y-3" style={{ width: "55%" }}>
+          <LogoSupporter logo={props.data.logo1} />
+          <div className="mx-8 space-y-3">
             <p className="text-5xl uppercase">{props.data.title}</p>
             <p className="opacity-50 text-2xl uppercase">{props.data.phase}</p>
           </div>
+          <LogoSupporter logo={props.data.logo2} />
           <div
-            className="rounded-full bg-white"
-            style={{ width: "5%", height: "80%" }}
+            className="relative ml-auto space-y-3 text-2xl"
+            style={{ width: "35%" }}
           >
-            {/* Logo Supporter */}
-          </div>
-          <div className="ml-8 space-y-3 text-2xl" style={{ width: "35%" }}>
             <p className="uppercase">{props.data.venue}</p>
             {props.data.isFinished && <p>Pemenang: {props.data.winner}</p>}
           </div>
@@ -45,23 +56,37 @@ const Card = (props) => {
 
 const CaborDetail = (props) => {
   const id = props.match.params.id;
-
-  const getData = async () => {
-    const lalala = await (
-      await db.collection("dataCabor").doc(id).collection("schedule").get()
-    ).docs;
-
-    console.log(lalala);
-  };
-  getData();
-
-  const data = [...caborList, ...casenList];
-  const item = data.filter((i) => i.title === id)[0];
+  const [caborHeader, setCaborHeader] = useState({});
+  const [caborData, setCaborData] = useState([]);
   const [showCategory, setShowCategory] = useState(false);
-  const [selectedCategory, setSelectedCategory] = useState(
-    item.schedule[0].category
-  );
-  const assetsCaborDetail = `${process.env.PUBLIC_URL}/images/CaborDetail`;
+  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [schedule, setSchedule] = useState([]);
+
+  useEffect(() => {
+    const getData = async () => {
+      setCaborHeader((await db.collection("dataCabor").doc(id).get()).data());
+      await db
+        .collection("dataCabor")
+        .doc(id)
+        .collection("schedule")
+        .get()
+        .then((querySnapshot) => {
+          const data = querySnapshot.docs.map((doc) => doc.data());
+          setCaborData(data);
+          if (data[0]) {
+            setSelectedCategory(data[0].category);
+            setSchedule(
+              data.map((item) => {
+                if (item.category === data[0].category) {
+                  return item.data;
+                }
+              })[0]
+            );
+          }
+        });
+    };
+    getData();
+  }, [id]);
 
   const showCategoryHandler = () => {
     setShowCategory((prevState) => !prevState);
@@ -71,10 +96,6 @@ const CaborDetail = (props) => {
     setSelectedCategory(category);
     setShowCategory(false);
   };
-
-  const schedule = item.schedule.filter(
-    (data) => data.category === selectedCategory
-  )[0].data;
 
   return (
     <div className="relative bg-merah min-w-full px-5 overflow-hidden">
@@ -90,13 +111,13 @@ const CaborDetail = (props) => {
             className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white"
             style={{ width: "70%" }}
           >
-            <h1 className="mb-8 font-bold text-5xl uppercase">{item.title}</h1>
-            <p className="text-xl">{item.description}</p>
+            <h1 className="mb-8 font-bold text-5xl uppercase">{id}</h1>
+            <p className="text-xl">{caborHeader.description}</p>
           </div>
         </div>
         <img
           className="relative ml-auto w-1/2"
-          src={`${assetsCaborDetail}/cover-${item.title}.png`}
+          src={`${assetsCaborDetail}/cover-${id}.png`}
           alt=""
         />
       </div>
@@ -106,43 +127,46 @@ const CaborDetail = (props) => {
         alt=""
       />
       <div className="flex flex-col justify-center px-20 pt-8">
-        <div
-          className={`z-10 relative w-1/5 bg-white ${
-            showCategory
-              ? "rounded-t-3xl"
-              : "bg-opacity-80 backdrop-filter backdrop-blur-lg rounded-3xl"
-          } py-3 text-2xl`}
-        >
+        {selectedCategory && (
           <div
-            className="flex justify-between cursor-pointer"
-            onClick={showCategoryHandler}
+            className={`z-10 relative w-1/5 bg-white ${
+              showCategory
+                ? "rounded-t-3xl"
+                : "bg-opacity-80 backdrop-filter backdrop-blur-lg rounded-3xl"
+            } py-3 text-2xl`}
           >
-            <p className="px-6 py-3 opacity-50">{selectedCategory}</p>
-            <div className="flex justify-center px-4 border-l border-black border-opacity-60">
-              <img
-                className={`py-3 ${
-                  showCategory ? "transition transform rotate-180" : ""
-                }`}
-                style={{ width: "60%" }}
-                src={`${assetsCaborDetail}/dropdown.svg`}
-                alt=""
-              />
+            <div
+              className="flex justify-between cursor-pointer"
+              onClick={showCategoryHandler}
+            >
+              <p className="px-6 py-3 opacity-50">{selectedCategory}</p>
+              <div className="flex justify-center px-4 border-l border-black border-opacity-60">
+                <img
+                  className={`py-3 ${
+                    showCategory ? "transition transform rotate-180" : ""
+                  }`}
+                  style={{ width: "60%" }}
+                  src={`${assetsCaborDetail}/dropdown.svg`}
+                  alt=""
+                />
+              </div>
             </div>
+            {showCategory && (
+              <div className="absolute w-full bg-white rounded-b-3xl mt-3 pb-3">
+                {caborData.length &&
+                  caborData.map((data) => (
+                    <p
+                      key={data.category}
+                      className="px-6 py-3 opacity-50 cursor-pointer"
+                      onClick={() => selectCategoryHandler(data.category)}
+                    >
+                      {data.category}
+                    </p>
+                  ))}
+              </div>
+            )}
           </div>
-          {showCategory && (
-            <div className="absolute w-full bg-white rounded-b-3xl mt-3 pb-3">
-              {item.schedule.map((schedule) => (
-                <p
-                  key={schedule.category}
-                  className="px-6 py-3 opacity-50 cursor-pointer"
-                  onClick={() => selectCategoryHandler(schedule.category)}
-                >
-                  {schedule.category}
-                </p>
-              ))}
-            </div>
-          )}
-        </div>
+        )}
         <div className="self-center w-full font-sansPro">
           {schedule.map((data, index) => (
             <Card key={index} data={data} />
