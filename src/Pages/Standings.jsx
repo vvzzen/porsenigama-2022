@@ -7,7 +7,7 @@ const Standings = () => {
   const history = useHistory();
 
   useEffect(() => {
-    const medalsData = db.collection("standings").onSnapshot((snap) => {
+    const medalsData = db.collection("standings").orderBy("name").onSnapshot((snap) => {
       let data = snap.docs.map((doc) => doc.data());
       data = data.sort((a, b) => {
         if (a.gold < b.gold) {
