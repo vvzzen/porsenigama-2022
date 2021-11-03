@@ -1,5 +1,3 @@
-const Host = require("./config/Host");
-
 module.exports = {
   important: true,
   purge: [],

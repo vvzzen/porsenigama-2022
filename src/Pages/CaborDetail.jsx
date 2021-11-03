@@ -19,13 +19,15 @@ const Card = (props) => {
   const Player = (props) => {
     return (
       <div className="w-full flex flex-col justify-center items-center">
-        <p className="text-xl lg:text-2xl lg:text-3xl xl:text-5xl text-center">
-          {props.player}
-        </p>
+        {props.player && (
+          <p className="mb-1 text-xl lg:text-3xl xl:text-4xl font-semibold text-center">
+            {props.player}
+          </p>
+        )}
         <p
           className={`${
             !props.player
-              ? "text-xl lg:text-2xl lg:text-3xl xl:text-5xl text-center"
+              ? "text-xl lg:text-3xl xl:text-4xl font-semibold text-center"
               : "lg-text-xl xl:text-2xl"
           }`}
         >
@@ -52,9 +54,7 @@ const Card = (props) => {
         <div className="flex flex-col items-center w-full sm:flex-1 mx-3 lg:mx-8 xl:space-y-3">
           <div className="flex flex-col sm:flex-row w-full mb-5 sm:mb-0 justify-center items-center">
             <Player player={props.data.player1} faculty={props.data.faculty1} />
-            <p className="mx-8 my-3 text-xl lg:text-xl xl:text-3xl">
-              VS
-            </p>
+            <p className="mx-8 my-3 text-xl lg:text-xl xl:text-3xl">VS</p>
             <Player player={props.data.player2} faculty={props.data.faculty2} />
           </div>
           <p className="opacity-50 lg:text-xl xl:text-2xl uppercase">
