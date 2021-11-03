@@ -1,8 +1,18 @@
 const dataSponsor = [
     {
+        "name" : "My Pertamina",
+        "img" : "sponsor/pertamina.png",
+        "lebar" : 96,
+    },   
+    {
+        "name" : "NK",
+        "img" : "sponsor/NK.png",
+        "lebar" : 96,
+    },
+    {
         "name" : "BTN",
         "img" : "sponsor/BTN.png",
-        "lebar" : 144,
+        "lebar" : 96,
     },
     {
         "name" : "GRS",
