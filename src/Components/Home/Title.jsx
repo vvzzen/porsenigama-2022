@@ -2,7 +2,7 @@ import React from 'react'
 
 const Title = () => {
     return (
-        <div className = 'z-30 h-full relative md:flex items-center md:items-stretch md:justify-start md:content-end' >
+        <div className = 'z-30 h-full mt-5 relative md:flex items-center md:items-stretch md:justify-start md:content-end' >
             <div className = 'h-2'></div>
             <div className = 'md:w-45c cursor-default'>
                 <div className = 'flex md:items-stretch justify-center md:ml-28 md:justify-start md:content-end text-5xl md:text-fourteenvh md:mt-32 text-biru font-nuku'> 

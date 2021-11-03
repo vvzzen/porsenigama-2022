@@ -141,7 +141,7 @@ const Section3 = () => {
         />
       </div>
       <img
-        className="relative"
+        className="relative -mb-1"
         src={`${process.env.PUBLIC_URL}/images/Sec3/bg_end.svg`}
         alt=""
       />

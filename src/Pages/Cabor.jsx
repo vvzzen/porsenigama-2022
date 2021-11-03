@@ -14,11 +14,11 @@ const Cabor = () => {
     <>
       <div className="relative w-full">
         <img
-          className="pointer-events-none"
+          className="-mt-3 pointer-events-none"
           src={`${assetsCabor}/hero.png`}
           alt=""
         />
-        {width > 1020 ? (
+        {width > 1024 ? (
           <button
             className={`absolute left-1/2 bottom-24 ${styles.arrowBounce}`}
             style={{ maxWidth: "5%" }}
