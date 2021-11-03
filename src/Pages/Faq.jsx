@@ -2,7 +2,7 @@ import { faqList } from "../data/faqList"
 
 const Faq = () => {
   return (
-    <div className="bg-kuning min-h-screen faq py-12" style={{ background: `url(${process.env.PUBLIC_URL}/images/faq/bg-faq.png)` }} >
+    <div className="bg-kuning min-h-screen faq py-12 mt-10" style={{ background: `url(${process.env.PUBLIC_URL}/images/faq/bg-faq.png)` }} >
       <div className="flex justify-center relative">
         <img
           src={`${process.env.PUBLIC_URL}/images/faq/frame-pojok-biru 1.png`}
