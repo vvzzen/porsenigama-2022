@@ -6,12 +6,31 @@ const Card = (props) => {
   const LogoSupporter = (props) => {
     const logo = props.logo ? props.logo : "undefined";
     return (
-      <div className="w-14 h-14 lg:w-20 lg:h-20 xl:w-28 xl:h-28 rounded-full">
+      <div className="hidden sm:block w-14 h-14 lg:w-20 lg:h-20 xl:w-28 xl:h-28 rounded-full">
         <img
           className="w-full h-full rounded-full"
           src={`${assetsCaborDetail}/supporter/${logo}.png`}
           alt=""
         />
+      </div>
+    );
+  };
+
+  const Player = (props) => {
+    return (
+      <div className="w-full flex flex-col justify-center items-center">
+        <p className="text-xl lg:text-2xl lg:text-3xl xl:text-5xl text-center">
+          {props.player}
+        </p>
+        <p
+          className={`${
+            !props.player
+              ? "text-xl lg:text-2xl lg:text-3xl xl:text-5xl text-center"
+              : "lg-text-xl xl:text-2xl"
+          }`}
+        >
+          {props.faculty}
+        </p>
       </div>
     );
   };
@@ -28,27 +47,27 @@ const Card = (props) => {
           )}
         </div>
       </div>
-      <div className="mt-1 bg-white bg-opacity-80 backdrop-filter backdrop-blur-lg rounded-b-3xl">
-        <div className="flex flex-col sm:flex-row items-center px-2 sm:px-8 py-4 sm:py-12">
-          <div className="flex flex-1 py-2">
-            <LogoSupporter logo={props.data.logo1} />
-            <div className="mx-3 lg:mx-8 xl:space-y-3">
-              <p className="text-xl lg:text-2xl lg:text-3xl xl:text-5xl uppercase">
-                {props.data.title}
-              </p>
-              <p className="opacity-50 lg:text-xl xl:text-2xl uppercase">
-                {props.data.phase}
-              </p>
-            </div>
-            <LogoSupporter logo={props.data.logo2} />
+      <div className="flex flex-col sm:flex-row items-center px-2 sm:px-8 py-4 sm:py-12 mt-1 bg-white bg-opacity-80 backdrop-filter backdrop-blur-lg rounded-b-3xl">
+        <LogoSupporter logo={props.data.logo1} />
+        <div className="flex flex-col items-center w-full sm:flex-1 mx-3 lg:mx-8 xl:space-y-3">
+          <div className="flex flex-col sm:flex-row w-full mb-5 sm:mb-0 justify-center items-center">
+            <Player player={props.data.player1} faculty={props.data.faculty1} />
+            <p className="mx-8 my-3 text-xl lg:text-xl xl:text-3xl">
+              VS
+            </p>
+            <Player player={props.data.player2} faculty={props.data.faculty2} />
           </div>
-          <div className="w-44 lg:w-1/3 py-2 xl:space-y-3 lg-text-xl xl:text-2xl text-center">
-            <p className="uppercase">{props.data.venue}</p>
-            {props.data.isFinished && props.data.winner && (
-              <p>Pemenang: {props.data.winner}</p>
-            )}
-          </div>
+          <p className="opacity-50 lg:text-xl xl:text-2xl uppercase">
+            {props.data.phase}
+          </p>
+          <p className="lg-text-xl xl:text-2xl uppercase">{props.data.venue}</p>
+          {props.data.isFinished && props.data.winner && (
+            <p className="lg-text-xl xl:text-2xl">
+              Pemenang: {props.data.winner}
+            </p>
+          )}
         </div>
+        <LogoSupporter logo={props.data.logo2} />
       </div>
     </div>
   );
