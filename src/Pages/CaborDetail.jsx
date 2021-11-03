@@ -4,10 +4,11 @@ const assetsCaborDetail = `${process.env.PUBLIC_URL}/images/CaborDetail`;
 
 const Card = (props) => {
   const LogoSupporter = (props) => {
-    const logo = props.logo ? props.logo : "undefined";
+    const [logo, setLogo] = useState(props.logo);
     return (
       <div className="hidden sm:block w-14 h-14 lg:w-20 lg:h-20 xl:w-28 xl:h-28 rounded-full">
         <img
+          onError={() => setLogo("undefined")}
           className="w-full h-full rounded-full"
           src={`${assetsCaborDetail}/supporter/${logo}.png`}
           alt=""
@@ -50,7 +51,7 @@ const Card = (props) => {
         </div>
       </div>
       <div className="flex flex-col sm:flex-row items-center px-2 sm:px-8 py-4 sm:py-12 mt-1 bg-white bg-opacity-80 backdrop-filter backdrop-blur-lg rounded-b-3xl">
-        <LogoSupporter logo={props.data.logo1} />
+        <LogoSupporter logo={props.data.faculty1.split(" (")[0]} />
         <div className="flex flex-col items-center w-full sm:flex-1 mx-3 lg:mx-8 xl:space-y-3">
           <div className="flex flex-col sm:flex-row w-full mb-5 sm:mb-0 justify-center items-center">
             <Player player={props.data.player1} faculty={props.data.faculty1} />
@@ -67,7 +68,7 @@ const Card = (props) => {
             </p>
           )}
         </div>
-        <LogoSupporter logo={props.data.logo2} />
+        <LogoSupporter logo={props.data.faculty2.split(" (")[0]} />
       </div>
     </div>
   );
@@ -83,27 +84,27 @@ const CaborDetail = (props) => {
 
   useEffect(() => {
     const getData = async () => {
-      setCaborHeader((await db.collection("dataCabor").doc(id).get()).data());
-      await db
+      const headerData = (
+        await db.collection("dataCabor").doc(id).get()
+      ).data();
+      const querySnapshot = await db
         .collection("dataCabor")
         .doc(id)
         .collection("schedule")
-        .get()
-        .then((querySnapshot) => {
-          const data = querySnapshot.docs.map((doc) => doc.data());
-          setCaborData(data);
-          if (data[0]) {
-            let category = data[0].category;
-            if (!selectedCategory) {
-              setSelectedCategory(data[0].category);
-            } else {
-              category = selectedCategory;
-            }
-            setSchedule(
-              data.filter((item) => item.category === category)[0].data
-            );
-          }
-        });
+        .get();
+      const data = querySnapshot.docs.map((doc) => doc.data());
+
+      if (data[0]) {
+        let category = data[0].category;
+        if (!selectedCategory) {
+          setSelectedCategory(data[0].category);
+        } else {
+          category = selectedCategory;
+        }
+        setSchedule(data.filter((item) => item.category === category)[0].data);
+        setCaborHeader(headerData);
+        setCaborData(data);
+      }
     };
     getData();
   }, [id, selectedCategory]);
