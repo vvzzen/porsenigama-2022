@@ -40,7 +40,7 @@ const Standings = () => {
   };
 
   return (
-    <div className="min-h-screen font-sansPro font-semibold tracking-wide bg-krem relative overflow-hidden">
+    <div className="min-h-screen font-nuku tracking-wide bg-krem relative overflow-hidden">
       <img
         src={`${process.env.PUBLIC_URL}/images/Standings/Bg.png`}
         alt=""
@@ -54,7 +54,7 @@ const Standings = () => {
         }}
       ></div>
       <h1
-        className="font-bold pt-24 text-center font-nuku text-5xl md:text-fourteenvh tracking-wider relative text-biru"
+        className="font-bold pt-24 text-center text-5xl md:text-fourteenvh tracking-wider relative text-biru"
         style={{
           textShadow: [
             "-1px -1px 0 #FBE5D2",
@@ -154,7 +154,7 @@ const Standings = () => {
             {standingsData.map((faculty, index) => (
               <tr key={faculty.name}>
                 <td
-                  className="px-6 border-3 text-left border-ungugaje"
+                  className="px-6 border-3 text-left border-ungugaje font-sansPro font-bold"
                   style={{ "border-left": "none", "border-bottom": "none" }}
                 >
                   {faculty.name}
