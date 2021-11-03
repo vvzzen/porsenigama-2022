@@ -64,7 +64,7 @@ const Cabor = () => {
         <div className="flex flex-wrap justify-center w-5/6 gap-y-10">
           {list.map((item) => (
             <a
-              className="w-1/3"
+              className="w-1/3 transform transition-transform transition-300 hover:scale-110"
               key={item.title}
               href={`${process.env.PUBLIC_URL}/cabor/${item.title}`}
             >
