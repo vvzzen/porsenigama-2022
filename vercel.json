@@ -1,3 +1,0 @@
-{
-  "rewrites": [{ "source": "/2021/porsenigama/(.*)", "destination": "/" }]
-}
