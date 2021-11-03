@@ -4,7 +4,7 @@ const assetsCaborDetail = `${process.env.PUBLIC_URL}/images/CaborDetail`;
 
 const Card = (props) => {
   const LogoSupporter = (props) => {
-    const [logo, setLogo] = useState(props.logo);
+    const [logo, setLogo] = useState(props.logo.toLowerCase());
     return (
       <div className="hidden sm:block w-14 h-14 lg:w-20 lg:h-20 xl:w-28 xl:h-28 rounded-full">
         <img
