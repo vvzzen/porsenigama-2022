@@ -87,14 +87,14 @@ const CaborDetail = (props) => {
       const headerData = (
         await db.collection("dataCabor").doc(id).get()
       ).data();
+      console.log(headerData);
       const querySnapshot = await db
         .collection("dataCabor")
         .doc(id)
         .collection("schedule")
         .get();
       const data = querySnapshot.docs.map((doc) => doc.data());
-
-      if (data[0]) {
+      if (data.length) {
         let category = data[0].category;
         if (!selectedCategory) {
           setSelectedCategory(data[0].category);
@@ -102,9 +102,9 @@ const CaborDetail = (props) => {
           category = selectedCategory;
         }
         setSchedule(data.filter((item) => item.category === category)[0].data);
-        setCaborHeader(headerData);
         setCaborData(data);
       }
+      setCaborHeader(headerData);
     };
     getData();
   }, [id, selectedCategory]);
