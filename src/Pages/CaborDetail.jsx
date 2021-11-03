@@ -4,19 +4,14 @@ const assetsCaborDetail = `${process.env.PUBLIC_URL}/images/CaborDetail`;
 
 const Card = (props) => {
   const LogoSupporter = (props) => {
+    const logo = props.logo ? props.logo : "undefined";
     return (
-      <div
-        className={`w-14 h-14 lg:w-20 lg:h-20 xl:w-28 xl:h-28 rounded-full ${
-          props.logo ? "bg-white" : "bg-black"
-        }`}
-      >
-        {props.logo && (
-          <img
-            className="w-full h-full rounded-full"
-            src={`${assetsCaborDetail}/supporter/${props.logo}.png`}
-            alt=""
-          />
-        )}
+      <div className="w-14 h-14 lg:w-20 lg:h-20 xl:w-28 xl:h-28 rounded-full">
+        <img
+          className="w-full h-full rounded-full"
+          src={`${assetsCaborDetail}/supporter/${logo}.png`}
+          alt=""
+        />
       </div>
     );
   };
