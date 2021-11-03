@@ -81,11 +81,7 @@ const CaborDetail = (props) => {
               category = selectedCategory;
             }
             setSchedule(
-              data.filter((item) => {
-                if (item.category === category) {
-                  return item.data;
-                }
-              })[0].data
+              data.filter((item) => item.category === category)[0].data
             );
           }
         });
