@@ -154,7 +154,7 @@ const Standings = () => {
             {standingsData.map((faculty, index) => (
               <tr key={faculty.name}>
                 <td
-                  className="px-6 border-3 text-left border-ungugaje"
+                  className="px-6 border-3 text-left border-ungugaje font-sansPro font-bold"
                   style={{ "border-left": "none", "border-bottom": "none" }}
                 >
                   {faculty.name}
