@@ -51,6 +51,9 @@ const Navbar = () => {
             <a href={`${process.env.PUBLIC_URL}/klasemen`}>Klasemen</a>
           </div>
           <div>
+            <a href={`${process.env.PUBLIC_URL}/galeri`}>Galeri</a>
+          </div>
+          <div>
             <a href={`${process.env.PUBLIC_URL}/faq`}>FAQ</a>
           </div>
         </div>

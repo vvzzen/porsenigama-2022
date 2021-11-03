@@ -18,5 +18,8 @@ const datafoto =
         {judul : "galeri" , foto: "galeri15.png"},
         {judul : "galeri" , foto: "galeri16.png"},
         {judul : "galeri" , foto: "galeri17.png"},
+        {judul : "galeri" , foto: "galeri18.png"},
+        {judul : "galeri" , foto: "galeri19.png"},
+        {judul : "galeri" , foto: "galeri20.png"},
     ]
 export { datafoto }
