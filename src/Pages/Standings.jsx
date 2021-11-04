@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom";
 
 const Standings = () => {
   const [standingsData, setStandingsData] = useState([]);
+  const [standingsRef, setStandingsRef] = useState([]);
   const history = useHistory();
 
   useEffect(() => {
@@ -34,6 +35,43 @@ const Standings = () => {
       return medalsData();
     });
   }, []);
+
+  useEffect(() => {
+    const medalsData = db.collection("standings").where("badminton", "!=", null).onSnapshot((snap) => {
+      let data = snap.docs.map((doc) => doc.data());
+      data = data.sort((a, b) => {
+        if (a.gold < b.gold) {
+          return 1;
+        } else if (a.gold > b.gold) {
+          return -1;
+        } else {
+          if (a.silver < b.silver) {
+            return 1;
+          } else if (a.silver > b.silver) {
+            return -1;
+          } else {
+            if (a.bronze < b.bronze) {
+              return 1;
+            } else if (a.bronze > b.bronze) {
+              return -1; 
+            } else {
+              return 0;
+            }
+          }
+        }
+      });
+      setStandingsRef(data);
+      return medalsData();
+    });    
+  }, []);
+
+  useEffect(() => {
+    console.log(standingsData);
+  }, [standingsData]);
+  
+  useEffect(() => {
+    console.log(standingsRef);
+  }, [standingsRef]);
 
   const goBack = () => {
     history.push(`${process.env.PUBLIC_URL}/`);
@@ -107,12 +145,12 @@ const Standings = () => {
             <tr>
               <th
                 className="px-6 border-3 border-ungugaje"
-                style={{ "border-top": "none", "border-left": "none" }}
+                style={{ "borderTop": "none", "borderLeft": "none" }}
               ></th>
               <th
                 className="px-6 border-3 border-ungugaje"
                 align="center"
-                style={{ "border-top": "none" }}
+                style={{ "borderTop": "none" }}
               >
                 <img
                   src={`${process.env.PUBLIC_URL}/images/Standings/Mendali gold.png`}
@@ -123,7 +161,7 @@ const Standings = () => {
               <th
                 className="px-6 border-3 border-ungugaje"
                 align="center"
-                style={{ "border-top": "none" }}
+                style={{ "borderTop": "none" }}
               >
                 <img
                   src={`${process.env.PUBLIC_URL}/images/Standings/Mendali silver.png`}
@@ -134,7 +172,7 @@ const Standings = () => {
               <th
                 className="px-6 border-3 border-ungugaje"
                 align="center"
-                style={{ "border-top": "none" }}
+                style={{ "borderTop": "none" }}
               >
                 <img
                   src={`${process.env.PUBLIC_URL}/images/Standings/Mendali bronze.png`}
@@ -144,7 +182,7 @@ const Standings = () => {
               </th>
               <th
                 className="px-6 border-3 border-ungugaje"
-                style={{ "border-top": "none" }}
+                style={{ "borderTop": "none" }}
               >
                 total
               </th>
@@ -155,31 +193,31 @@ const Standings = () => {
               <tr key={faculty.name}>
                 <td
                   className="px-6 border-3 text-left border-ungugaje font-sansPro font-bold"
-                  style={{ "border-left": "none", "border-bottom": "none" }}
+                  style={{ "borderLeft": "none", "borderBottom": "none" }}
                 >
                   {faculty.name}
                 </td>
                 <td
                   className="px-6 border-3 border-ungugaje"
-                  style={{ "border-bottom": "none" }}
+                  style={{ "borderBottom": "none" }}
                 >
                   {faculty.gold}
                 </td>
                 <td
                   className="px-6 border-3 border-ungugaje"
-                  style={{ "border-bottom": "none" }}
+                  style={{ "borderBottom": "none" }}
                 >
                   {faculty.silver}
                 </td>
                 <td
                   className="px-6 border-3 border-ungugaje"
-                  style={{ "border-bottom": "none" }}
+                  style={{ "borderBottom": "none" }}
                 >
                   {faculty.bronze}
                 </td>
                 <td
                   className="px-6 border-3 border-ungugaje"
-                  style={{ "border-bottom": "none" }}
+                  style={{ "borderBottom": "none" }}
                 >{`${faculty.silver + faculty.gold + faculty.bronze}`}</td>
               </tr>
             ))}
