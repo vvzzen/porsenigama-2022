@@ -7,6 +7,11 @@ const Standings = () => {
   const [standingsRef, setStandingsRef] = useState([]);
   const [filter, setFilter] = useState('0');
 
+  const filterlib = ["Badminton", "badminton", "sepak", "panahan", "esports", "judo", "karate",
+                      "taekwondo", "silat", "catur", "panjat", "bridge", "puisi", "monolog",
+                      "band", "lukis", "makeup", "keroncong", "vocal", "naskah", "foto",
+                      "tari"]
+
   const history = useHistory();
 
   useEffect(() => {
@@ -38,12 +43,19 @@ const Standings = () => {
     });
   }, []);
 
+  // useEffect(() => {
+  //   effect
+  //   return () => {
+  //     cleanup
+  //   }
+  // }, [input])
+
   useEffect(() => {
-    const medalsData = db.collection("standings").doc(filter).onSnapshot((snap) => {
-      let data = snap.docs.map((doc) => doc.data());
+    const medalsData = db.collection("standings").doc(filterlib[Number(filter)]).onSnapshot((doc) => {
+      let data = doc.data();
       setStandingsRef(data);
-      return medalsData();
-    });    
+      return medalsData();     
+    });
   }, [filter]);
 
   const goBack = () => {
@@ -360,6 +372,9 @@ const Standings = () => {
           })()}
         </table>
       </div>
+      {/* <div>
+        {standingsRef}
+      </div> */}
       <button
         className="cursor-pointer transform scale-50 md:scale-100 transition duration-300 md:hover:scale-105 ml-4 md:ml-20"
         onClick={goBack}
