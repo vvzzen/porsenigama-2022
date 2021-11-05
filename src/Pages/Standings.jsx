@@ -7,7 +7,7 @@ const Standings = () => {
   const [standingsRef, setStandingsRef] = useState([]);
   const [filter, setFilter] = useState('0');
 
-  const filterlib = ["Badminton", "badminton", "sepak", "panahan", "esports", "judo", "karate",
+  const filterlib = ["badminton", "badminton", "sepak", "panahan", "esport", "judo", "karate",
                       "taekwondo", "silat", "catur", "panjat", "bridge", "puisi", "monolog",
                       "band", "lukis", "makeup", "keroncong", "vocal", "naskah", "foto",
                       "tari"]
@@ -15,44 +15,68 @@ const Standings = () => {
   const history = useHistory();
 
   useEffect(() => {
-    const medalsData = db.collection("standings").orderBy("name").onSnapshot((snap) => {
-      let data = snap.docs.map((doc) => doc.data());
-      data = data.sort((a, b) => {
-        if (a.gold < b.gold) {
-          return 1;
-        } else if (a.gold > b.gold) {
-          return -1;
-        } else {
-          if (a.silver < b.silver) {
+    if (filter === '0') {
+      const medalsData = db.collection("standings").orderBy("name").onSnapshot((snap) => {
+        let data = snap.docs.map((doc) => doc.data());
+        data = data.sort((a, b) => {
+          if (a.gold < b.gold) {
             return 1;
-          } else if (a.silver > b.silver) {
+          } else if (a.gold > b.gold) {
             return -1;
           } else {
-            if (a.bronze < b.bronze) {
+            if (a.silver < b.silver) {
               return 1;
-            } else if (a.bronze > b.bronze) {
+            } else if (a.silver > b.silver) {
               return -1;
             } else {
-              return 0;
+              if (a.bronze < b.bronze) {
+                return 1;
+              } else if (a.bronze > b.bronze) {
+                return -1;
+              } else {
+                return 0;
+              }
             }
           }
-        }
+        });
+        setStandingsData(data);
+        return medalsData();
       });
-      setStandingsData(data);
-      return medalsData();
-    });
-  }, []);
-
-  // useEffect(() => {
-  //   effect
-  //   return () => {
-  //     cleanup
-  //   }
-  // }, [input])
-
+    } else {
+      const medalsData = db.collection("standings").where(filterlib[Number(filter)], "!=", null).onSnapshot((snap) => {
+        let data = snap.docs.map((doc) => doc.data());
+        data = data.sort((a, b) => {
+          if (a[filterlib[Number(filter)]].gold !== null && b[filterlib[Number(filter)]].gold !== null) {
+            if (a[filterlib[Number(filter)]].gold < b[filterlib[Number(filter)]].gold) {
+              return 1;
+            } else if (a[filterlib[Number(filter)]].gold > b[filterlib[Number(filter)]].gold) {
+              return -1;
+            } else {
+              if (a[filterlib[Number(filter)]].silver < b[filterlib[Number(filter)]].silver) {
+                return 1;
+              } else if (a[filterlib[Number(filter)]].silver > b[filterlib[Number(filter)]].silver) {
+                return -1;
+              } else {
+                if (a[filterlib[Number(filter)]].bronze < b[filterlib[Number(filter)]].bronze) {
+                  return 1;
+                } else if (a[filterlib[Number(filter)]].bronze > b[filterlib[Number(filter)]].bronze) {
+                  return -1;
+                } else {
+                  return 0;
+                }
+              }
+            }
+          }
+        });
+        setStandingsData(data);
+        return medalsData();
+      });
+    }
+  }, [filter]);
+  
   useEffect(() => {
-    const medalsData = db.collection("standings").doc(filterlib[Number(filter)]).onSnapshot((doc) => {
-      let data = doc.data();
+    const medalsData = db.collection("standings/" + filterlib[Number(filter)] + "/cabang").orderBy("name").onSnapshot((snap) => {
+      let data = snap.docs.map((doc) => doc.data());
       setStandingsRef(data);
       return medalsData();     
     });
@@ -66,9 +90,10 @@ const Standings = () => {
     setFilter(document.getElementById("filterli").value);
   }
 
-  useEffect(() => {
-    console.log(standingsRef);
-  }, [standingsRef])
+  // useEffect(() => {
+  //   let toprint = standingsData[0]
+  //   console.log(toprint['badminton'].bronze);
+  // }, [standingsData])
 
   return (
     <div className="min-h-screen font-nuku tracking-wide bg-krem relative overflow-hidden">
@@ -260,108 +285,30 @@ const Standings = () => {
                         className="px-6 border-3 border-ungugaje"
                         style={{ "borderBottom": "none" }}
                       >
-                        {(filter === '1' && faculty.badminton !== undefined && faculty.badminton.gold !== undefined) ? faculty.badminton.gold
-                        : (filter === '2' && faculty.sepak !== undefined && faculty.sepak.gold !== undefined) ? faculty.sepak.gold
-                        : (filter === '3' && faculty.archery !== undefined && faculty.archery.gold !== undefined) ? faculty.archery.gold
-                        : (filter === '4' && faculty.esport !== undefined && faculty.esport.gold !== undefined) ? faculty.esport.gold
-                        : (filter === '5' && faculty.judo !== undefined && faculty.judo.gold !== undefined) ? faculty.judo.gold
-                        : (filter === '6' && faculty.karate !== undefined && faculty.karate.gold !== undefined) ? faculty.karate.gold                  
-                        : (filter === '7' && faculty.taekwondo !== undefined && faculty.taekwondo.gold !== undefined) ? faculty.taekwondo.gold
-                        : (filter === '8' && faculty.silat!== undefined && faculty.silat.gold !== undefined) ? faculty.silat.gold
-                        : (filter === '9' && faculty.catur !== undefined && faculty.catur.gold !== undefined) ? faculty.catur.gold
-                        : (filter === '10' && faculty.panjat !== undefined && faculty.panjat.gold !== undefined) ? faculty.panjat.gold
-                        : (filter === '11' && faculty.bridge !== undefined && faculty.bridge.gold !== undefined) ? faculty.bridge.gold
-                        : (filter === '12' && faculty.puisi !== undefined && faculty.puisi.gold !== undefined) ? faculty.puisi.gold
-                        : (filter === '13' && faculty.monolog !== undefined && faculty.monolog.gold !== undefined) ? faculty.monolog.gold
-                        : (filter === '14' && faculty.band !== undefined && faculty.band.gold !== undefined) ? faculty.band.gold
-                        : (filter === '15' && faculty.lukis !== undefined && faculty.lukis.gold !== undefined) ? faculty.lukis.gold
-                        : (filter === '16' && faculty.makeup !== undefined && faculty.makeup.gold !== undefined) ? faculty.makeup.gold
-                        : (filter === '17' && faculty.keroncong !== undefined && faculty.keroncong.gold !== undefined) ? faculty.keroncong.gold
-                        : (filter === '18' && faculty.vocal !== undefined && faculty.vocal.gold !== undefined) ? faculty.vocal.gold
-                        : (filter === '19' && faculty.naskah !== undefined && faculty.naskah.gold !== undefined) ? faculty.naskah.gold
-                        : (filter === '20' && faculty.foto !== undefined && faculty.foto.gold !== undefined) ? faculty.foto.gold
-                        : (filter === '21' && faculty.tari !== undefined && faculty.tari.gold !== undefined) ? faculty.tari.gold
+                        {(faculty[filterlib[Number(filter)]] !== undefined && faculty[filterlib[Number(filter)]].gold !== undefined) ? faculty[filterlib[Number(filter)]].gold
                         : 0 }
                       </td>
                       <td
                         className="px-6 border-3 border-ungugaje"
                         style={{ "borderBottom": "none" }}
                       >
-                        {(filter === '1' && faculty.badminton !== undefined && faculty.badminton.silver !== undefined) ? faculty.badminton.silver
-                        : (filter === '2' && faculty.sepak !== undefined && faculty.sepak.silver !== undefined) ? faculty.sepak.silver
-                        : (filter === '3' && faculty.archery !== undefined && faculty.archery.silver !== undefined) ? faculty.archery.silver
-                        : (filter === '4' && faculty.esport !== undefined && faculty.esport.silver !== undefined) ? faculty.esport.silver
-                        : (filter === '5' && faculty.judo !== undefined && faculty.judo.silver !== undefined) ? faculty.judo.silver
-                        : (filter === '6' && faculty.karate !== undefined && faculty.karate.silver !== undefined) ? faculty.karate.silver                  
-                        : (filter === '7' && faculty.taekwondo !== undefined && faculty.taekwondo.silver !== undefined) ? faculty.taekwondo.silver
-                        : (filter === '8' && faculty.silat!== undefined && faculty.silat.silver !== undefined) ? faculty.silat.silver
-                        : (filter === '9' && faculty.catur !== undefined && faculty.catur.silver !== undefined) ? faculty.catur.silver
-                        : (filter === '10' && faculty.panjat !== undefined && faculty.panjat.silver !== undefined) ? faculty.panjat.silver
-                        : (filter === '11' && faculty.bridge !== undefined && faculty.bridge.silver !== undefined) ? faculty.bridge.silver
-                        : (filter === '12' && faculty.puisi !== undefined && faculty.puisi.silver !== undefined) ? faculty.puisi.silver
-                        : (filter === '13' && faculty.monolog !== undefined && faculty.monolog.silver !== undefined) ? faculty.monolog.silver
-                        : (filter === '14' && faculty.band !== undefined && faculty.band.silver !== undefined) ? faculty.band.silver
-                        : (filter === '15' && faculty.lukis !== undefined && faculty.lukis.silver !== undefined) ? faculty.lukis.silver
-                        : (filter === '16' && faculty.makeup !== undefined && faculty.makeup.silver !== undefined) ? faculty.makeup.silver
-                        : (filter === '17' && faculty.keroncong !== undefined && faculty.keroncong.silver !== undefined) ? faculty.keroncong.silver
-                        : (filter === '18' && faculty.vocal !== undefined && faculty.vocal.silver !== undefined) ? faculty.vocal.silver
-                        : (filter === '19' && faculty.naskah !== undefined && faculty.naskah.silver !== undefined) ? faculty.naskah.silver
-                        : (filter === '20' && faculty.foto !== undefined && faculty.foto.silver !== undefined) ? faculty.foto.silver
-                        : (filter === '21' && faculty.tari !== undefined && faculty.tari.silver !== undefined) ? faculty.tari.silver
+                        {(faculty[filterlib[Number(filter)]] !== undefined && faculty[filterlib[Number(filter)]].silver !== undefined) ? faculty[filterlib[Number(filter)]].silver
                         : 0 }
+
                       </td>
                       <td
                         className="px-6 border-3 border-ungugaje"
                         style={{ "borderBottom": "none" }}
                       >
-                        {(filter === '1' && faculty.badminton !== undefined && faculty.badminton.bronze !== undefined) ? faculty.badminton.bronze
-                        : (filter === '2' && faculty.sepak !== undefined && faculty.sepak.bronze !== undefined) ? faculty.sepak.bronze
-                        : (filter === '3' && faculty.archery !== undefined && faculty.archery.bronze !== undefined) ? faculty.archery.bronze
-                        : (filter === '4' && faculty.esport !== undefined && faculty.esport.bronze !== undefined) ? faculty.esport.bronze
-                        : (filter === '5' && faculty.judo !== undefined && faculty.judo.bronze !== undefined) ? faculty.judo.bronze
-                        : (filter === '6' && faculty.karate !== undefined && faculty.karate.bronze !== undefined) ? faculty.karate.bronze                  
-                        : (filter === '7' && faculty.taekwondo !== undefined && faculty.taekwondo.bronze !== undefined) ? faculty.taekwondo.bronze
-                        : (filter === '8' && faculty.silat!== undefined && faculty.silat.bronze !== undefined) ? faculty.silat.bronze
-                        : (filter === '9' && faculty.catur !== undefined && faculty.catur.bronze !== undefined) ? faculty.catur.bronze
-                        : (filter === '10' && faculty.panjat !== undefined && faculty.panjat.bronze !== undefined) ? faculty.panjat.bronze
-                        : (filter === '11' && faculty.bridge !== undefined && faculty.bridge.bronze !== undefined) ? faculty.bridge.bronze
-                        : (filter === '12' && faculty.puisi !== undefined && faculty.puisi.bronze !== undefined) ? faculty.puisi.bronze
-                        : (filter === '13' && faculty.monolog !== undefined && faculty.monolog.bronze !== undefined) ? faculty.monolog.bronze
-                        : (filter === '14' && faculty.band !== undefined && faculty.band.bronze !== undefined) ? faculty.band.bronze
-                        : (filter === '15' && faculty.lukis !== undefined && faculty.lukis.bronze !== undefined) ? faculty.lukis.bronze
-                        : (filter === '16' && faculty.makeup !== undefined && faculty.makeup.bronze !== undefined) ? faculty.makeup.bronze
-                        : (filter === '17' && faculty.keroncong !== undefined && faculty.keroncong.bronze !== undefined) ? faculty.keroncong.bronze
-                        : (filter === '18' && faculty.vocal !== undefined && faculty.vocal.bronze !== undefined) ? faculty.vocal.bronze
-                        : (filter === '19' && faculty.naskah !== undefined && faculty.naskah.bronze !== undefined) ? faculty.naskah.bronze
-                        : (filter === '20' && faculty.foto !== undefined && faculty.foto.bronze !== undefined) ? faculty.foto.bronze
-                        : (filter === '21' && faculty.tari !== undefined && faculty.tari.bronze !== undefined) ? faculty.tari.bronze
+                        {(faculty[filterlib[Number(filter)]] !== undefined && faculty[filterlib[Number(filter)]].bronze !== undefined) ? faculty[filterlib[Number(filter)]].bronze
                         : 0 }
+
                       </td>
                       <td
                         className="px-6 border-3 border-ungugaje"
                         style={{ "borderBottom": "none" }}
                       >
-                        {(filter === '1' && faculty.badminton !== undefined && faculty.badminton.total !== undefined) ? faculty.badminton.total
-                        : (filter === '2' && faculty.sepak !== undefined && faculty.sepak.total !== undefined) ? faculty.sepak.total
-                        : (filter === '3' && faculty.archery !== undefined && faculty.archery.total !== undefined) ? faculty.archery.total
-                        : (filter === '4' && faculty.esport !== undefined && faculty.esport.total !== undefined) ? faculty.esport.total
-                        : (filter === '5' && faculty.judo !== undefined && faculty.judo.total !== undefined) ? faculty.judo.total
-                        : (filter === '6' && faculty.karate !== undefined && faculty.karate.total !== undefined) ? faculty.karate.total                  
-                        : (filter === '7' && faculty.taekwondo !== undefined && faculty.taekwondo.total !== undefined) ? faculty.taekwondo.total
-                        : (filter === '8' && faculty.silat!== undefined && faculty.silat.total !== undefined) ? faculty.silat.total
-                        : (filter === '9' && faculty.catur !== undefined && faculty.catur.total !== undefined) ? faculty.catur.total
-                        : (filter === '10' && faculty.panjat !== undefined && faculty.panjat.total !== undefined) ? faculty.panjat.total
-                        : (filter === '11' && faculty.bridge !== undefined && faculty.bridge.total !== undefined) ? faculty.bridge.total
-                        : (filter === '12' && faculty.puisi !== undefined && faculty.puisi.total !== undefined) ? faculty.puisi.total
-                        : (filter === '13' && faculty.monolog !== undefined && faculty.monolog.total !== undefined) ? faculty.monolog.total
-                        : (filter === '14' && faculty.band !== undefined && faculty.band.total !== undefined) ? faculty.band.total
-                        : (filter === '15' && faculty.lukis !== undefined && faculty.lukis.total !== undefined) ? faculty.lukis.total
-                        : (filter === '16' && faculty.makeup !== undefined && faculty.makeup.total !== undefined) ? faculty.makeup.total
-                        : (filter === '17' && faculty.keroncong !== undefined && faculty.keroncong.total !== undefined) ? faculty.keroncong.total
-                        : (filter === '18' && faculty.vocal !== undefined && faculty.vocal.total !== undefined) ? faculty.vocal.total
-                        : (filter === '19' && faculty.naskah !== undefined && faculty.naskah.total !== undefined) ? faculty.naskah.total
-                        : (filter === '20' && faculty.foto !== undefined && faculty.foto.total !== undefined) ? faculty.foto.total
-                        : (filter === '21' && faculty.tari !== undefined && faculty.tari.total !== undefined) ? faculty.tari.total
+                        {(faculty[filterlib[Number(filter)]] !== undefined && faculty[filterlib[Number(filter)]].total !== undefined) ? faculty[filterlib[Number(filter)]].total
                         : 0 }
                       </td>
                     </tr>
@@ -372,15 +319,20 @@ const Standings = () => {
           })()}
         </table>
       </div>
-      {/* <div>
-        {standingsRef}
-      </div> */}
-      <button
-        className="cursor-pointer transform scale-50 md:scale-100 transition duration-300 md:hover:scale-105 ml-4 md:ml-20"
-        onClick={goBack}
-      >
-        <img src={`${process.env.PUBLIC_URL}/images/News/Back.svg`} alt="" />
-      </button>
+      <div className = 'flex justify-between mx-4 md:mx-20'>
+        <button
+          className="cursor-pointer transform scale-50 md:scale-100 transition duration-300 md:hover:scale-105"
+          onClick={goBack}
+        >
+          <img src={`${process.env.PUBLIC_URL}/images/News/Back.svg`} alt="" />
+        </button>
+        <button
+          className="cursor-pointer transform scale-50 md:scale-100 transition duration-300 md:hover:scale-105"
+          onClick={goBack}
+        >
+          <img src={`${process.env.PUBLIC_URL}/images/Standings/Detail.png`} alt="" />
+        </button>
+      </div>
       <div className="h-4 md:h-20"></div>
     </div>
   );
