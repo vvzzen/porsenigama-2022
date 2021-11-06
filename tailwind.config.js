@@ -38,6 +38,12 @@ module.exports = {
             lineHeight: "3vh",
           },
         ],
+        twohvh: [
+          "2.5vh",
+          {
+            lineHeight: "3vh",
+          },
+        ],
         oneten: [
           "104px",
           {
