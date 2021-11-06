@@ -67,7 +67,7 @@ const News = () => {
             <div className='md:w-1/3 md:ml-24 mx-4 md:mr-0'>
                 <p className="font-sans text-justify md:px-0 mt-20 md:mt-40">
                     <br></br>&emsp;&emsp;{content1[newsNo]}<br></br>
-                    <br></br>&emsp;&emsp;{content2[newsNo]}<br></br>
+                    <br></br>&emsp;&emsp;{content2[newsNo]}
                 </p>
                 {/* {(() => {
                     if (newsNo === 0) {
