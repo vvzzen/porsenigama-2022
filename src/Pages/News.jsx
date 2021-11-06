@@ -57,7 +57,7 @@ const News = () => {
 
     return (
         <>
-        <div className='text-fivevh md:text-6xl font-nuku bg-oren md:ml-24 pb-3 md:pb-6 pt-16 md:pt-28 text-white rounded-b-3xl text-center absolute w-full md:w-1/3 cursor-default'>
+        <div className='text-3xl md:text-eitvh font-nuku bg-oren md:ml-24 pb-3 md:pb-6 pt-16 md:pt-28 text-white rounded-b-3xl text-center absolute w-full md:w-1/3 cursor-default'>
             {title[newsNo]}
         </div>
         <img src={`${process.env.PUBLIC_URL}/images/News/Group 55.svg`} alt="" className='transform scale-50 absolute hidden md:flex' style={{'left' : '41%', 'top' : '20%'}} />

@@ -26,6 +26,12 @@ module.exports = {
             lineHeight: "14vh",
           },
         ],
+        eitvh: [
+          "8vh",
+          {
+            lineHeight: "8vh",
+          },
+        ],
         fivevh: [
           "5vh",
           {
